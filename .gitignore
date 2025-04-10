@@ -1,3 +1,5 @@
-prompt_plan.md
-spec.md
-todo.md
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
