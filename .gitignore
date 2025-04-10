@@ -3,3 +3,9 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+
+
+#personal files
+prompt_plan.md 
+spec.md
+todo.md
