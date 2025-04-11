@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Schrödinger's Cat</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat&family=Dancing+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://example-font-host.com/suisseintl-webxl.css">
   <style>
     :root {
       --color-black: #161616;
@@ -16,8 +16,7 @@
       height: 100%;
       margin: 0;
       background: var(--color-black);
-      color: var(--color-white);
-      font-family: 'Courier New', Courier, monospace;
+      font-family : 'Suisseintl Webxl', Arial, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -29,6 +28,16 @@
     .quote {
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
+      color : var(--color-white);
+      
+    }
+
+    .hover-text {
+        font-size : 1rem;
+        color : rgb(154, 154, 154);
+      }
+    .hover-text:hover {
+      text-decoration: underline;
     }
 
     .cat {
@@ -211,40 +220,13 @@
       25%, 100% { transform: translate(0); }
     }
 
-    /* Button */
-    .home-btn {
-      padding: 0.75rem 1.5rem;
-      height: 3rem;
-      width: 15rem;
-      font-size: 1rem;
-      color: #DC143C;
-      background: var(--color-white);
-      border: none;
-      border-radius: 2rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .home-btn:hover {
-      background: #e5e5e5;
-      transform: scale(1.05);
-    }
+    
 
     @media (max-width: 500px) {
       :root {
         --size: 120px;
       }
 
-      .quote {
-  font-size: 1.2rem;
-  margin-bottom: 3rem; /* or more, if you want even more spacing */
-}
-
-
-      .home-btn {
-        font-size: 0.9rem;
-        padding: 0.5rem 1.2rem;
-      }
     }
   </style>
 </head>
@@ -265,7 +247,74 @@
     </div>
   </div>
 
-  <button class="home-btn" onclick="location.href='/'">Return to Reality</button>
+  <div class="hover-text" onclick="location.href='/'">home</div>
 </body>
 </html>
 
+<script>
+function get_index(n) {
+    while (true) {
+        var perm = Array.from({ length: n }, (_, i) => i);
+
+        for (let i = perm.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * i);
+            [perm[i], perm[j]] = [perm[j], perm[i]];
+        }
+
+        let isDeranged = true;
+        for (let i = 0; i < n; i++) {
+            if (perm[i] === i) {
+                isDeranged = false;
+                break;
+            }
+        }
+        if (isDeranged) {
+            return perm;
+        }
+    }
+}
+
+const hoverElements = document.querySelectorAll('.hover-text');
+const TIMEOUT = 120;
+hoverElements.forEach(el => {
+    el.dataset.original = el.textContent;
+
+    el.addEventListener('mouseenter', () => {
+        el.style.color = 'red';
+        el.style.cursor = 'pointer';
+        const originalText = el.dataset.original;
+        const index = get_index(originalText.length);
+        //scramble the current text once
+        let currentText = originalText;
+        let scrambledText = currentText.split('').map((char, i) => {
+            return currentText[index[i]];
+        }).join('');
+        //set the scrambled text to the element
+        el.textContent = scrambledText;
+        currentText = scrambledText;
+        //set timeout
+        setTimeout(() => {
+            //scramble the text again
+            scrambledText = currentText.split('').map((char, i) => {
+                return currentText[index[i]];
+            }).join('');
+            //set the scrambled text to the element
+            el.textContent = scrambledText;
+            setTimeout(()=> {
+                //set the original text to the element
+                el.textContent = originalText;
+            },TIMEOUT);
+
+        }, TIMEOUT);
+    }); 
+      el.addEventListener('mouseleave', () => {
+        el.style.color = '';
+        el.style.cursor = '';
+      });
+});
+
+
+
+
+
+</script>
