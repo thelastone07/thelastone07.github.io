@@ -1,5 +1,9 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+// TODO
+// play with the amount of discrete steps 
+// try to increase the height of the gaussian curve
+//
 
 function setupCanvas() {
     canvas.width = window.innerWidth;
@@ -17,20 +21,22 @@ const pointer = {
 };
 
 const gridSettings = {
-    cellWidth : 50,
-    cellHeight : 50,
+    cellWidth : 100,
+    cellHeight : 100,
     lineWidth : 0,
     color : "#333333",
-    distortionRadius : 200,
+    stepSize : 20,
+    baseSigma : 200,
+    distortionRadius : 600,
     distortionStrength : 0.8,
     colorShiftStrength : 0.4,
     gaussianWidth : 40,
     discreteSteps : 5,
     fadeTime : 300,
-    xPositiveColor: 'red',
-    xNegativeColor: 'yellow',
-    yPositiveColor: 'green',
-    yNegativeColor: 'blue'
+    xPositiveColor : 'yellow',
+    xNegativeColor : 'green',
+    yPositiveColor : 'purple',
+    yNegativeColor : 'violet'
 }
 
 function updateMousePosition(eX, eY) {
@@ -50,9 +56,6 @@ window.addEventListener("mousemove", (e)=> {
 
 setupCanvas();
 
-function gaussianValue(x, sigma) {
-    return Math.exp(-(x * x) / (2 * sigma * sigma));
-}
 
 function drawGrid() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -64,7 +67,8 @@ function drawGrid() {
     const numCellsY = Math.ceil(canvas.height / gridSettings.cellHeight) + 1;
     const speed = Math.sqrt(pointer.vx * pointer.vx + pointer.vy * pointer.vy);
     const stepSize = Math.max(1, Math.floor(speed/5));
-
+    let random = [];
+            
     for (let x = 0; x <= numCellsX; x++) {
         const baseX = x * gridSettings.cellWidth;
         const points = [];
@@ -85,6 +89,7 @@ function drawGrid() {
             } else {
                 ctx.fillStyle = baseX < pointer.x ? gridSettings.xPositiveColor : gridSettings.xNegativeColor;
             }
+            
             const dx = baseX - pointer.x;
             const dist = Math.abs(dx);
             if (dist <= gridSettings.distortionRadius) {
@@ -94,15 +99,55 @@ function drawGrid() {
                 ctx.globalAlpha = 1.0;
             }
         }
-        ctx.beginPath();
-        for (let i = 0; i < points.length; i++) {
-            if (i == 0) {
-                ctx.moveTo(points[i].x, points[i].y);
-            } else {
+        // ctx.beginPath();
+        // for (let i = 0; i < points.length; i++) {
+        //     if (i == 0) {
+        //         ctx.moveTo(points[i].x, points[i].y);
+        //     } else {
+        //         ctx.lineTo(points[i].x, points[i].y);
+        //     }
+        // }
+        // ctx.stroke();
+    }
+
+    for (let x = 0; x <= numCellsX; x++) {
+        const baseX = x * gridSettings.cellWidth;
+        const points = [];
+        for (let y = 0; y < canvas.height; y += stepSize) {
+            const distX = getDistortionX(baseX, y, fadeFactor);
+            points.push({x: baseX - distX, y: y});
+        }
+        if (points.length > 0 && Math.abs(pointer.vx) > 0.1) {
+            ctx.beginPath();
+            ctx.moveTo(points[0].x, points[0].y);
+            for (let i = 1; i < points.length; i++) {
                 ctx.lineTo(points[i].x, points[i].y);
             }
+            ctx.lineTo(baseX, canvas.height);
+            ctx.lineTo(baseX, 0);
+            if (pointer.vx > 0) {
+                ctx.fillStyle = baseX > pointer.x ? gridSettings.xNegativeColor : gridSettings.xPositiveColor;
+            } else {
+                ctx.fillStyle = baseX < pointer.x ? gridSettings.xNegativeColor : gridSettings.xPositiveColor;
+            }
+            const dx = baseX - pointer.x;
+            const dist = Math.abs(dx);
+            if (dist <= gridSettings.distortionRadius) {
+                const opacity = (1 - dist / gridSettings.distortionRadius) * fadeFactor * 0.3;
+                ctx.globalAlpha = opacity;
+                ctx.fill();
+                ctx.globalAlpha = 1.0;
+            }
         }
-        ctx.stroke();
+        // ctx.beginPath();
+        // for (let i = 0; i < points.length; i++) {
+        //     if (i == 0) {
+        //         ctx.moveTo(points[i].x, points[i].y);
+        //     } else {
+        //         ctx.lineTo(points[i].x, points[i].y);
+        //     }
+        // }
+        // ctx.stroke();
     }
 
     for (let y = 0; y <= numCellsY; y++) {
@@ -134,39 +179,113 @@ function drawGrid() {
                 ctx.globalAlpha = 1.0;
             }
         }
-        ctx.beginPath();
-        for (let i = 0; i < points.length; i++) {
-            if (i == 0) {
-                ctx.moveTo(points[i].x, points[i].y);
-            } else {
+        // ctx.beginPath();
+        // for (let i = 0; i < points.length; i++) {
+        //     if (i == 0) {
+        //         ctx.moveTo(points[i].x, points[i].y);
+        //     } else {
+        //         ctx.lineTo(points[i].x, points[i].y);
+        //     }
+        // }
+        // ctx.stroke();
+    }
+
+    for (let y = 0; y <= numCellsY; y++) {
+        const baseY = y * gridSettings.cellHeight;
+        const points = [];
+        for (let x = 0; x < canvas.width; x += stepSize) {
+            const distY = getDistortionY(x, baseY, fadeFactor);
+            points.push({x: x, y: baseY - distY});
+        }
+        if (points.length > 0 && Math.abs(pointer.vy) > 0.1) {
+            ctx.beginPath();
+            ctx.moveTo(points[0].x, points[0].y);
+            for (let i = 1; i < points.length; i++) {
                 ctx.lineTo(points[i].x, points[i].y);
             }
+            ctx.lineTo(canvas.width, baseY);
+            ctx.lineTo(0, baseY);
+            if (pointer.vy > 0) {
+                ctx.fillStyle = baseY > pointer.y ? gridSettings.yNegativeColor : gridSettings.yPositiveColor;
+            } else {
+                ctx.fillStyle = baseY < pointer.y ? gridSettings.yNegativeColor : gridSettings.yPositiveColor;
+            }
+            const dy = baseY - pointer.y;
+            const dist = Math.abs(dy);
+            if (dist <= gridSettings.distortionRadius) {
+                const opacity = (1 - dist / gridSettings.distortionRadius) * fadeFactor * 0.3;
+                ctx.globalAlpha = opacity;
+                ctx.fill();
+                ctx.globalAlpha = 1.0;
+            }
         }
-        ctx.stroke();
+        // ctx.beginPath();
+        // for (let i = 0; i < points.length; i++) {
+        //     if (i == 0) {
+        //         ctx.moveTo(points[i].x, points[i].y);
+        //     } else {
+        //         ctx.lineTo(points[i].x, points[i].y);
+        //     }
+        // }
+        // ctx.stroke();
     }
+
+    
 }
 
 function getDistortionX(x, y, fadeFactor) {
     if (Math.abs(pointer.vx) < 0.1) return 0;
+    
     const dx = x - pointer.x;
     const dy = y - pointer.y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    
     if (dist > gridSettings.distortionRadius) return 0;
-    const step = Math.floor(dist / gridSettings.distortionRadius);
-    const gaussianHeight = gaussianValue(2*step,1);
-    return gaussianHeight * gridSettings.distortionStrength * 30 * Math.sign(dx) * fadeFactor;
+
+    // Gaussian parameters
+    const sigma = gridSettings.baseSigma* (1 - dist/gridSettings.distortionRadius); // Adjust sigma based on distance from center
+    const yCenter = pointer.y; // Center of Gaussian distortion
+    const yDist = y - yCenter;
+    // Calculate Gaussian attenuation based on y-distance from center
+    const stepSize = 30;
+    const step = Math.round(yDist / stepSize);
+    const discreteYDist = step * stepSize;
+
+    const gaussianAttenuation = Math.exp(-(discreteYDist*discreteYDist)/(2*sigma*sigma));
+
+    return gridSettings.distortionStrength * 25 * 
+           Math.sign(dx) * 
+           gaussianAttenuation * 
+           fadeFactor;
 }
 
-function getDistortionY(x, y, fadeFactor) {
+function getDistortionY(x, y, fadeFactor) { 
     if (Math.abs(pointer.vy) < 0.1) return 0;
+    
     const dx = x - pointer.x;
     const dy = y - pointer.y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    
     if (dist > gridSettings.distortionRadius) return 0;
-    const step = Math.floor(dist / gridSettings.distortionRadius);
-    const gaussianHeight = gaussianValue(2*step,1);
-    return gaussianHeight * gridSettings.distortionStrength * 30 * Math.sign(dy) * fadeFactor;
+
+    // Gaussian parameters
+    const sigma = gridSettings.baseSigma* (1 - dist/gridSettings.distortionRadius); // Adjust sigma based on distance from center
+    const xCenter = pointer.x; // Center of Gaussian distortion
+    
+    // Calculate Gaussian attenuation based on x-distance from center
+    const xDist = x - xCenter;
+    const stepSize = 30;
+    const step = Math.round(xDist / stepSize);
+    const discreteXDist = step * stepSize;
+
+    const gaussianAttenuation = Math.exp(-(discreteXDist*discreteXDist)/(2*sigma*sigma));
+
+    return gridSettings.distortionStrength * 25 * 
+           Math.sign(dx) * 
+           gaussianAttenuation * 
+           fadeFactor;
 }
+
 
 let lastTime = 0;
 const fps = 60;
@@ -178,5 +297,6 @@ function animate(timestamp) {
     lastTime = timestamp;
     drawGrid();
 }
+
 
 animate(0);
