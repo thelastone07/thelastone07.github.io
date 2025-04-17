@@ -12,12 +12,6 @@
             overflow : hidden;
 
         }
-
-        body {
-            background: url('face.jpg') no-repeat center center;
-            background-size: cover;
-        }
-
         canvas {
             position : fixed;
             top : 0;
@@ -27,7 +21,9 @@
     </style>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-    <script src="eye_script.js"></script>
+    <canvas id="pixelCanvas"></canvas>
+    <img id="sourceImg" src="face.jpg" style="display:none;">
+    <script src="eye_scripts.js"></script>
 </body>
+
 </html>
