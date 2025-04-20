@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://example-font-host.com/suisseintl-webxl.css">
+  <title>3x4 Grid of Spans</title>
+  <style>
+    .grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr); /* Use 1fr for equal height rows */
+  column-gap: 0;
+  row-gap: 0;
+  padding: 0;
+  margin: 0;
+  width: fit-content;   /* Optional: make grid fill the viewport */
+  height: auto;  /* Optional: make grid fill the viewport */
+}
+
+.grid-container span {
+  display: block; /* No flex */
+  background: #eee; /* For testing: change to #eee to see edges */
+  color: red;
+  font-size: 10rem;
+  font-family: 'Suisseintl Webxl', Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+  height: fit-content;
+  line-height: 1; /* Remove extra vertical space */
+  text-align: left;
+}
+
+    #abc1 {
+        grid-area : 1 / 1 / span 1 / span 1;
+    }
+    #abc2 {
+        grid-area : 1 / 2 / span 1 / span 1;
+    }
+    #abc3 {
+        grid-area : 1 / 3 / span 1 / span 1;
+    }
+    #abc4 {
+        grid-area : 2 / 1 / span 1 / span 2;
+    }
+    #abc5 {
+        grid-area : 2 / 2 / span 1 / span 1;
+    }
+    #abc6 {
+        grid-area : 3 / 1 / span 1 / span 1;
+    }
+    #abc7 {
+        grid-area : 3 / 2 / span 1 / span 2;
+    }
+    #abc8 {
+        grid-area : 4 / 1 / span 1 / span 1;
+    }
+    #abc9 {
+        grid-area : 4 / 2 / span 1 / span 2;
+    }
+
+    .grid-container span {
+  opacity: 0; 
+  transition: opacity 0.5s ease;
+}
+
+.grid-container span.visible {
+  opacity: 1;
+}
+  
+      .filler {
+        height: 100vh; /* Fills the viewport height */
+        width: 100vw; /* Fills the viewport width */
+        background-color: #f0f0f0; /* Optional: background color for the filler */
+      }
+
+  </style>
+</head>
+<body>
+  <div class="filler"> HELLO </div>
+  <div class="grid-container">
+    <span class = "loading" id = "abc1">Hello</span>
+    <span class = "loading" id = "abc2">Are</span>
+    <span class = "loading" id = "abc3">You</span>
+    <span class = "loading" id = "abc4">Well</span>
+    <span class = "loading" id = "abc5">!?</span>
+    <span class = "loading" id = "abc6">WE</span>
+    <span class = "loading" id = "abc7">HAVE</span>
+    <span class = "loading" id = "abc8">You</span>
+    <span class = "loading" id = "abc9">HERE</span>
+  </div>
+  <script src="loading.js"></script>
+</body>
+</html>
+
