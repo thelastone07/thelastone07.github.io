@@ -1,3 +1,5 @@
+// TODO : maybe add some weird ass font shapes in between the transition
+
 function get_index(n) {
     while (true) {
         var perm = Array.from({ length: n }, (_, i) => i);
@@ -21,11 +23,13 @@ function get_index(n) {
 }
 
 const hoverElements = document.querySelectorAll('.hover-text');
-const TIMEOUT = 125;
+const TIMEOUT = 130;
 hoverElements.forEach(el => {
     el.dataset.original = el.textContent;
 
     el.addEventListener('mouseenter', () => {
+        el.style.color = 'red';
+        el.style.cursor = 'pointer';
         const originalText = el.dataset.original;
         const index = get_index(originalText.length);
         //scramble the current text once
@@ -50,8 +54,10 @@ hoverElements.forEach(el => {
             },TIMEOUT);
 
         }, TIMEOUT);
-}); 
+    }); 
+      el.addEventListener('mouseleave', () => {
+        el.style.color = '';
+        el.style.cursor = '';
+      });
 });
-
-
 

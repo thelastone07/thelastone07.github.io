@@ -1,0 +1,125 @@
+/* Navbar starts here */
+
+.Navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1vw;
+    height: 30px;
+    box-sizing: border-box;
+    }
+
+#Navbar-left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#Navbar-right {
+    display: flex;
+    gap: 12px;
+}
+
+#Navbar-home, #Navbar-photos, #Navbar-blogs, #Navbar-diary {
+    color: rgb(181, 181, 181);
+    font-size: 1.3rem;
+    font-family: 'Suisseintl Webxl', Arial, sans-serif; 
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    letter-spacing: -0.08rem;
+}
+
+#Navbar-photos:hover, #Navbar-blogs:hover, #Navbar-diary:hover {
+    text-decoration: underline;
+    color: #ff5555;
+}
+
+@media (max-width: 768px) {
+    .Navbar {
+        height: 30px;
+        padding: 0 1vw;
+    }
+    #Navbar-home, #Navbar-photos, #Navbar-blogs, #Navbar-diary {
+        font-size: 1.3rem;
+        padding: 6px 8px;
+    }
+    #Navbar-right {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Navbar {
+        height: auto;
+        padding: 6px 3vw;
+    }
+    #Navbar-left {
+        justify-content: flex-start;
+    }
+    #Navbar-right {
+        justify-content: space-between;
+        gap: 2px;
+        margin-top: 4px;
+    }
+    #Navbar-home, #Navbar-photos, #Navbar-blogs, #Navbar-diary {
+        font-size: 0.7rem;
+        padding: 3px 5px;
+    }
+}
+
+
+/* Navbar Ends here */
+
+/* Background 1 starts here */
+
+.bg1{
+    position : absolute;
+    z-index : -1;
+    top : 0;
+    left : 0;
+    height : 100vh;
+    width : 100vw;
+    box-sizing: border-box;
+    display: flex;
+    align-items : flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding : 5vw;
+    font-family:  'Suisseintl Webxl', Arial, sans-serif;
+    margin-top : 25vh;
+}
+
+.bg1-big {
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: -0.3rem;
+    color : rgb(202, 202, 202);
+}
+
+.bg1-tilt-left {
+    color : rgb(202, 202, 202);
+    transform: rotate(90deg);
+    transform-origin: top left;
+    font-size : 0.5rem;
+}
+
+.bg1-quotes {
+    display : flex;
+    flex-direction: row;
+    gap : 0;
+    
+}
+
+/* Background 1 ends here */
+
+/* Foreground 1 starts here */
+
+/* Foreground 1 ends here */
