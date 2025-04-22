@@ -93,8 +93,9 @@
     align-items : start;
     justify-content: start;
     font-family:  'Suisseintl Webxl', Arial, sans-serif;
-    margin-top : 25vh;
+    margin-top : 20vh;
     padding : 5vh;
+    filter: blur(2px);
 }
 
 .bg1-big {
@@ -164,6 +165,7 @@
     .bg1 {
         margin-top: 30vh;
         padding: 2vh;
+        filter: blur(1.3px);
     }
     .bg1-big {
         font-size: 1.2rem;
@@ -193,6 +195,395 @@
 
 /* Background 1 ends here */
 
+/* Foreground container starts here */
+.fg-container {
+    position : relative;
+    top : 0;
+    left : 0;
+    height : 100vh;
+    width : 100vw;
+}
+
+/* Foreground container ends here */
+
 /* Foreground 1 starts here */
 
+.fg1 {
+    position : relative;
+    background-color: transparent;
+    z-index : 1;
+    top : 10vh;
+    text-align: center;
+    width: fit-content;
+    left : 44vw;
+}
+
+.quote-1 {
+    font-family: 'Suisseintl Webxl', Arial, sans-serif; 
+    font-size : 0.6rem;
+    color : #ff0000;
+    font-weight: 600;
+}
+
+@media(max-width: 600px) {
+    .fg1 {
+        top : 10vh;
+        left : 44vw;
+    }
+    .quote-1 {
+        font-size: 0.3rem;
+    }
+}
+
+
 /* Foreground 1 ends here */
+
+/* Foreground 2 starts here */
+.fg2 {
+    position : relative;
+    background-color: transparent;
+    z-index: 1;
+    top : 18vh;
+    left : 10vh;
+    width : fit-content;
+    height: fit-content;
+    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    color : #ff0000e4;
+    --span-size-large : 4.4rem;
+    --span-size-small : 2.2rem;
+    --span-weight : 600;
+    --span-size-medium : 3.3rem;
+    --span-spacing : -0.3rem;
+    --span-size-smaller : 1.5rem;
+    --span-spacing-small : -0.2rem;
+}
+
+.grid-container {
+    display: grid;
+    width : fit-content;
+    height : auto;
+    grid-template-columns: repeat(25,auto);
+    grid-template-rows : repeat(5,auto);
+    column-gap : 0vh;
+}
+
+
+.grid-container>span {
+    display: block;
+    box-sizing : border-box;
+    margin : 0;
+    padding : 0;
+    width : fit-content;
+    height: fit-content;
+    text-align :left;
+    
+}
+
+#fg2-1 {
+    font-size : var(--span-size-small);
+    font-weight : var(--span-weight);
+    letter-spacing: var(--span-spacing);
+    grid-area : 1 / 1 / span 1 / span 1;
+    text-align: center;
+}
+#fg2-3 {
+    font-size : var(--span-size-large);
+    font-weight : var(--span-weight);
+    letter-spacing: var(--span-spacing);
+    grid-area : 1 / 2 / span 1 / span 5;
+    position : relative;
+    top : 2vh;
+    left : -2vh;
+}
+#fg2-4 {
+    font-size : var(--span-size-medium);
+    font-weight : var(--span-weight);
+    letter-spacing: var(--span-spacing);
+    grid-area : 2 / 1 / span 1 / span 1;
+
+}
+#fg2-5 {
+    font-size : var(--span-size-medium);
+    font-weight : var(--span-weight);
+    letter-spacing: var(--span-spacing);
+    grid-area : 2 / 2 / span 1 / span 1;
+    
+}
+#fg2-6 {
+    font-size : var(--span-size-medium);
+    font-weight : var(--span-weight);
+    letter-spacing: var(--span-spacing);
+    grid-area : 2 / 3/ span 1 / span 4;
+
+}
+#fg2-7 {
+    font-size : var(--span-size-small);
+    font-weight : var(--span-weight);
+    letter-spacing: var(--span-spacing-small);
+    grid-area : 3 / 1 / span 1 / span 2;
+}
+#fg2-9 {
+    font-size : var(--span-size-large);
+    font-weight : var(--span-weight);
+    letter-spacing: var(--span-spacing);
+    grid-area : 3 / 3 / span 1 / span 7;
+}
+
+#fg2-12 {
+    font-size : 5rem;
+    font-weight : var(--span-weight);
+    letter-spacing: -0.8rem;
+    grid-area : 4 / 1 / span 2 / span 9;
+    position : relative;
+    top : -2vh;
+}
+
+
+.grid-container span {
+    opacity: 0; 
+    transition: opacity 0.5s ease;
+  }
+  
+  .grid-container span.visible {
+    opacity: 1;
+  }
+
+/* Mobile-first adjustments */
+@media (max-width: 600px) {
+    .fg2 {
+        top: 28vh;
+        left: 5vw;
+        --span-size-large: 2.5rem;
+        --span-size-medium: 1.8rem;
+        --span-size-small: 1.2rem;
+        --span-spacing: -0.15rem;
+        --span-spacing-small: -0.1rem;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(15, auto); /* Reduced columns */
+        grid-template-rows: repeat(7, auto); /* More rows for vertical stacking */
+    }
+
+    /* Grid item adjustments */
+    #fg2-1 {
+        font-size: var(--span-size-small);
+        grid-area: 1 / 1 / span 1 / span 1;
+    }
+    #fg2-3 {
+        font-size: var(--span-size-large);
+        grid-area: 1 / 2 / span 1 / span 5;
+        position : relative;
+        top : 1vh;
+    }
+    #fg2-4 {
+        grid-area: 2 / 1 / span 1 / span 1;
+        
+    }
+    #fg2-5 {
+        grid-area: 2 / 2 / span 1 / span 1;
+        position: relative;
+        left : -1vh;
+    }
+    #fg2-6 {
+        grid-area: 2 / 3 / span 1 / span 2;
+        position: relative;
+        left : -1vh;
+    }
+    #fg2-7 {
+        grid-area: 3 / 1 / span 1 / span 2;
+    }
+    #fg2-9 {
+        font-size: var(--span-size-medium);
+        grid-area: 3 / 3 / span 1 / span 6;
+    }
+    #fg2-12 {
+        font-size: 3rem;
+        letter-spacing: -0.4rem;
+        grid-area: 4 / 1 / span 2 / span 8;
+        position: relative;
+        top : -1vh;
+    }
+}
+
+/* Extra small devices (portrait phones) */
+@media (max-width: 400px) {
+    .grid-container{
+        column-gap : 0vh;
+    }
+    .fg2 {
+        top: 28vh;
+        left: 3vw;
+        --span-size-large: 1.8rem;
+        --span-size-medium: 1.4rem;
+    }
+    #fg2-1 {
+        text-align: center;
+    }
+    #fg2-3 {
+       position : relative;
+       top : 1.5vh;
+       left : -1.5vh;
+        
+    }
+    #fg2-4 {
+        grid-area: 2 / 1 / span 1 / span 1;
+    }
+    #fg2-5 {
+        grid-area: 2 / 2 / span 1 / span 1;
+        position : relative;
+        left : -3vw;
+    }
+    #fg2-6 {
+        grid-area: 2 / 3 / span 1 / span 2;
+        position : relative;
+        left : -3vw;
+    }
+    #fg2-9 {
+        font-size : var(--span-size-large);
+        position : relative;
+        top : 0.5vh;
+    }
+    #fg2-12 {
+        font-size: 2.2rem;
+        letter-spacing: -0.3rem;
+        position: relative;
+        top : 0vh;
+    }
+}
+
+
+/* Foreground 2 ends here */
+
+/* Foreground 3 starts here */
+
+.fg3 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: auto;
+    background: transparent;
+    z-index: 2;
+    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    color: #ff0000e0;
+    font-weight: 700;
+    letter-spacing: -2.8rem;
+    font-size : 21rem;
+}
+
+@media (max-width :1024px) {
+    .fg3 {
+        font-size: 15rem;
+        letter-spacing: -1.9rem;
+    }
+}
+@media (max-width :780px) {
+    .fg3 {
+        font-size: 11rem;
+        letter-spacing: -1.4rem;
+    }
+}
+
+@media(max-width: 450px) {
+    .fg3 {
+        font-size: 5.5rem;
+        letter-spacing: -0.7rem;
+    }
+}
+
+
+/* Foreground 3 ends here */
+
+/* Foreground 4 starts here */
+
+.fg4 {
+    position : absolute;
+    top : -40vh;
+    left : 30vw;
+    background-color: transparent;
+    z-index : 2;
+    color : #ff0000e0;
+    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-size : 20vw;
+    font-weight: 700;
+    height: 5vh;
+    width: fit-content;
+}
+
+@media (max-width: 480px) {
+    .fg4 {
+        font-size: 20vw;
+        top : -20vh;
+    }
+}
+
+/* Foreground 4 ends here */
+
+/* Foreground 5 starts here */
+
+.fg5 {
+    position : absolute;
+    top : -10vh;
+    left : 50vw;
+    background-color: transparent;
+    z-index : 2;
+    color : #ff0000e0;
+    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-size : 8vw;
+    font-weight: 700;
+    height: 5vh;
+    width: fit-content;
+}
+
+@media (max-width: 480px) {
+    .fg4 {
+        font-size: 15vw;
+        top : 0vh;
+    }
+}
+
+/* Foreground 5 ends here */
+
+/* Foreground 6 starts here */
+
+.fg6 {
+    position: absolute;
+    top: 12vh;
+    right: 8vw;
+    background-color: transparent;
+    color: #ff0000e0;
+    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-size: 1.2vw;
+    font-weight: 700;
+    letter-spacing: -0.1vw;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    line-height: 0.8;
+
+}
+
+/* 
+Foreground 6 ends here */
+
+/* Foreground 7 starts here */
+.fg7 {
+    position : absolute;
+    bottom : 30vh;
+    right : 10vw;
+    background-color: transparent;
+    color: #ff0000e0;
+    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-size: 1.3vw;
+    font-weight: 700;
+    letter-spacing: -0.1vw;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    line-height: 0.8;
+
+
+}
+
+/* Foreground 7 ends here */
