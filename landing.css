@@ -88,13 +88,13 @@
     height : 100vh;
     width : 100vw;
     box-sizing: border-box;
-    display: flex;
-    align-items : flex-start;
+    display : flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding : 5vw;
+    align-items : start;
+    justify-content: start;
     font-family:  'Suisseintl Webxl', Arial, sans-serif;
     margin-top : 25vh;
+    padding : 5vh;
 }
 
 .bg1-big {
@@ -106,16 +106,89 @@
 
 .bg1-tilt-left {
     color : rgb(202, 202, 202);
-    transform: rotate(90deg);
-    transform-origin: top left;
+    transform-origin: bottom right;
+    transform : rotate(-90deg);
+    width : fit-content;
+    height : fit-content;
+    font-weight : 600;
+}
+#bg1-tilt-1 {
     font-size : 0.5rem;
+}
+#bg1-tilt-2 {
+    font-size : 0.6rem;
 }
 
 .bg1-quotes {
+    height : 5vh;
+    display: flex;
+}
+
+.bg1-tilt-right {
+    color : rgb(202, 202, 202);
+    transform-origin: bottom left;
+    transform : rotate(90deg);
+    width : fit-content;
+    height : fit-content;
+    font-weight : 600;
+}
+#bg1-straight {
+    color : rgb(202, 202, 202);
+    font-size : 0.5rem;
+}
+#bg1-tilt-3 {
+    font-size : 0.5rem;
+
+}
+.bg1-inside-flex {
     display : flex;
-    flex-direction: row;
-    gap : 0;
-    
+    width : fit-content;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding-left : 1vh;
+}
+
+#bg1-tilt-4 {
+    font-size : 0.5rem;
+   
+}
+
+#bg1-tilt-5 {
+    font-size : 0.4rem;
+}
+
+
+/* Mobile and below */
+@media (max-width: 600px) {
+    .bg1 {
+        margin-top: 30vh;
+        padding: 2vh;
+    }
+    .bg1-big {
+        font-size: 1.2rem;
+        letter-spacing: -0.08rem;
+    }
+    .bg1-tilt-left,
+    .bg1-tilt-right {
+        font-size: 0.3rem !important;
+    }
+    .bg1-quotes {
+        height: 3vh;
+    }
+    .bg1-insidie-flex {
+        padding-left: 0;
+    }
+    #bg1-tilt-1,
+    #bg1-tilt-2,
+    #bg1-tilt-3,
+    #bg1-tilt-4,
+    #bg1-tilt-5{
+        font-size: 0.3rem;
+    }
+    #bg1-straight {
+        font-size : 0.2rem;
+    }
 }
 
 /* Background 1 ends here */
