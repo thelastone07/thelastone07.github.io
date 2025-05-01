@@ -1,5 +1,6 @@
 
 import { listSubFolders, listFolderImages } from './get_photos.js';
+import { createGallery } from './gallery_loader.js';
 
 (async () => {
 let menuItems = await listSubFolders();
@@ -28,6 +29,14 @@ function renderCyclicList() {
     if (i === 0) li.classList.add('focused');
     else if (Math.abs(i) === 1) li.classList.add('near');
     else if (Math.abs(i) === 2) li.classList.add('far');
+    
+    li.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeSidebar();
+      console.log('changing gallery to', item.name);
+      createGallery(item.name); 
+    });
+    
     sidebarList.appendChild(li);
   }
   sidebarList.scrollTop = PAD * ITEM_HEIGHT;

@@ -1,7 +1,4 @@
 {
-  "dependencies": {
-    "firebase": "^11.6.1"
-  },
   "type": "module"
 }
 

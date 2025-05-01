@@ -412,22 +412,31 @@ body {
     flex-direction : column;
     width : 100%;
     height : auto;
-    padding : 4px;
     margin-bottom : 4px;
+    margin-right : 4px;
   }
 
   .gallery-child {
-    height : 50vh;
-    width : 100%;
-  }
+    max-width: 100vw;
+    max-height: 100vh;
+    width: auto;
+    height: auto;
+    padding-bottom : 1px;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center; 
   }
     
+}
+
+.apology {
+  width : 100%;
+  height : fit-content;
+  font-size : 1.1rem;
+  font-family: 'Suisseintl Webxl', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -.08em;
+  color : gray;
+  text-align : center;
+  margin-top : 10vh;
 }
 
   /* gallery ends here  */

@@ -1,18 +1,30 @@
 import { listFolderImages } from './get_photos.js';
 
-//todo : add screen diff
-// mobile stuff
-//others
-// add support for hrefs in sidebar
-//maybe a loading support before the images are loaded
+const debounce = (func, wait = 500) => {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  };
 
-async function createGallery() {
-    console.log('Creating gallery...');
-    const images = await listFolderImages('mumbai');
-    console.log('Images loaded:', images);
+
+async function createGallery(subFolder ) {
+    
+    const images = await listFolderImages(subFolder);
     
     const container = document.getElementById('galleryContainer');
+    container.innerHTML = ''; 
     let index = 0;
+
+    while (index < images.length && window.matchMedia("(max-width: 750px)").matches) {
+        const child = document.createElement('div');
+        child.className = 'gallery-child';
+        child.innerHTML = `<img src="${images[index].href}" alt="${images[index].name}">`;
+        index++;
+        container.appendChild(child);
+    }
+
 
     while (index < images.length) {
         // check if you can create a gallery 1 
@@ -86,4 +98,7 @@ async function createGallery() {
 }
 
 
-createGallery();
+
+createGallery('others');
+
+export { createGallery };

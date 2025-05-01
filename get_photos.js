@@ -69,7 +69,5 @@ const listSubFolders = async () => {
   return subfolders;
 }
 
-let images = await listFolderImages('mumbai');
-console.log('Images loaded:', images);
 
 export { listSubFolders, listFolderImages };
