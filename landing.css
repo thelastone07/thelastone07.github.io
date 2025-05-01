@@ -1,11 +1,11 @@
 html, body {
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 100%;  
     overflow-x: hidden; 
   }
   
-/* Navbar starts here */
+/* Header starts here */
 
 .Navbar {
     position: fixed;
@@ -43,6 +43,12 @@ html, body {
     font-weight: 700;
     letter-spacing: -0.08rem;
 }
+#Navbar-photos>a, #Navbar-blogs>a, #Navbar-diary>a {
+    text-decoration: none;
+    color: rgb(181, 181, 181);
+}
+
+
 
 #Navbar-photos:hover, #Navbar-blogs:hover, #Navbar-diary:hover {
     text-decoration: underline;
@@ -83,7 +89,7 @@ html, body {
 }
 
 
-/* Navbar Ends here */
+/* Header Ends here */
 
 /* Background 1 starts here */
 
