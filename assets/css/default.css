@@ -249,14 +249,6 @@ html, body {
   width : 100%;
 }
 
-/* .journal-entry {
-  padding: 2rem 2rem;
-  border-left: 4px solid #cbcbcb;
-  background: #faf9f900;
-  border-radius: 8px;
-  text-align: left;
-  width: 100%;  
-} */
 
 .journal-entry {
   padding: 2rem 2rem;
@@ -266,13 +258,12 @@ html, body {
   text-align: left;
   width: 100%;
   border: none;
-  transition: box-shadow 0.3s ease-in-out; /* Smooth transition */
+  transition: box-shadow 0.3s ease-in-out; 
 }
 
 .journal-entry:hover {
-  box-shadow: 0 4px 12px rgba(170, 72, 72, 0.2); /* Darker & larger shadow */
+  box-shadow: 0 4px 12px rgba(170, 72, 72, 0.2); 
 }
-
 
 
 
