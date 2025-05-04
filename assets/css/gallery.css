@@ -190,6 +190,9 @@ body {
             display : flex;
             flex-direction: column;
         }
+        .footer-left {
+          display: none;
+      }
         .footer-right {
             margin-left : 6vw;
             text-align: right;

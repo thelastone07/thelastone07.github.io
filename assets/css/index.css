@@ -493,6 +493,7 @@ html, body {
 }
 @media (max-width :780px) {
     .fg3 {
+        bottom : 5vh;
         font-size: 11rem;
         letter-spacing: -1.4rem;
     }
@@ -500,8 +501,9 @@ html, body {
 
 @media(max-width: 450px) {
     .fg3 {
+        bottom : 5vh;
         font-size: 4.9rem;
-        letter-spacing: -0.63rem;
+        letter-spacing: -0.55rem;
     }
 }
 
@@ -784,6 +786,7 @@ Foreground 6 ends here */
 
 
     @media(max-width:600px) {
+
         footer {
             display : flex;
             flex-direction: column;
@@ -791,6 +794,9 @@ Foreground 6 ends here */
         .footer-right {
             margin-left : 6vw;
             text-align: right;
+        }
+        .footer-left {
+            display: none;
         }
         #footer-right-1-1 {
             display : flex;

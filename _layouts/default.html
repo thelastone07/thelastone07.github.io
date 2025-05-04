@@ -41,13 +41,15 @@
             {% for journal in site.journals %}
               <div class="journal-entry">
                 <h2><a href="{{ journal.url }}">{{ journal.title }}</a></h2>
+                <div class="first-line">
                 <p class="date">{{ journal.date | date: "%-d %b, %Y" }}</p> 
-                <p>{{ journal.excerpt }}</p>
                 <div class="journal-categories">
                   {% for category in journal.categories %}
                     <span class="category">{{ category }}</span>
                   {% endfor %}
                 </div>
+                </div>
+                <p>{{ journal.excerpt }}</p>
               </div>
             {% endfor %}
           </div>

@@ -190,6 +190,9 @@ html, body {
               display : flex;
               flex-direction: column;
           }
+          .footer-left {
+            display: none;
+        }
           .footer-right {
               margin-left : 6vw;
               text-align: right;
@@ -226,7 +229,7 @@ html, body {
   font-size: 2rem;
   font-weight: 700;
   text-align : center;
-  color: #a8a6a6;
+  color: #aa4848;
   margin-bottom: 0.5rem;
   letter-spacing: -0.1rem;
 }
@@ -246,20 +249,37 @@ html, body {
   width : 100%;
 }
 
-.journal-entry {
-  padding: 1.2rem 1rem;
-  border-left: 4px solid #d11a2a;
-  background: #faf9f9;
+/* .journal-entry {
+  padding: 2rem 2rem;
+  border-left: 4px solid #cbcbcb;
+  background: #faf9f900;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   text-align: left;
-  width : 100%;
+  width: 100%;  
+} */
+
+.journal-entry {
+  padding: 2rem 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(170, 72, 72, 0.08);
+  text-align: left;
+  width: 100%;
+  border: none;
+  transition: box-shadow 0.3s ease-in-out; /* Smooth transition */
 }
+
+.journal-entry:hover {
+  box-shadow: 0 4px 12px rgba(170, 72, 72, 0.2); /* Darker & larger shadow */
+}
+
+
+
 
 .journal-entry h2 {
   margin: 0 0 0.3rem 0;
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight:  600;
 }
 
 .journal-entry h2 a {
@@ -274,7 +294,7 @@ html, body {
 
 .date {
   font-size: 0.8rem !important;
-  color: #888;
+  color: #888888;
   letter-spacing: -0.05rem;;
   margin-bottom: 1rem;
 }
@@ -283,11 +303,20 @@ html, body {
   margin: 0.3rem 0 0.7rem 0;
   color: #333;
   font-size: 1.05rem;
+  letter-spacing: -0.05rem;
+}
+
+.first-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .journal-categories {
   margin-top: 0.2rem;
+  text-align: right;
 }
+
 
 .category {
   display: inline-block;
