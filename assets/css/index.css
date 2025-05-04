@@ -43,11 +43,11 @@ html, body {
     font-weight: 700;
     letter-spacing: -0.08rem;
 }
-#Navbar-photos>a, #Navbar-blogs>a, #Navbar-diary>a {
+
+.links {
     text-decoration: none;
     color: rgb(181, 181, 181);
 }
-
 
 
 #Navbar-photos:hover, #Navbar-blogs:hover, #Navbar-diary:hover {

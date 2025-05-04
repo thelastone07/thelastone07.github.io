@@ -1,4 +1,4 @@
-// Helper to check if element is in viewport
+
 function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
     return (

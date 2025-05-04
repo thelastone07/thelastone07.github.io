@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://c.webfontfree.com/c.js?f=SuisseIntl-Regular" type="text/javascript"></script>
-<title>Gallery</title>
-  <link rel="stylesheet" href="./assets/css/gallery.css" />
+  <link rel="stylesheet" href="/assets/css/default.css">
 </head>
 <body>
     <div class="page-wrapper">
@@ -19,20 +18,40 @@
           <a class='links' href="/journal"><div class="hover-text" id="Navbar-diary">journal</div></a>
         </div>
       </header>
-      <!-- hamburger  -->
-      <div class="sidebar-toggle" id="sidebarToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      
-      <aside class="sidebar" id="sidebar">
-        <ul id ='sidebarList'></ul>
-      </aside>  
 
-      <div class="gallery-container" id="galleryContainer"></div>
+      <div class="list-wrapper">
+
       
-      <div class="apology">Thank you for your patience while the gallery loads. I created the storage bucket in east-us :)</div>
+        {% if page.path == "journal.md" %}
+        <div class="list-header">
+          <div class="list-heading">Journal</div>
+          <div class="list-description">Perpective on things around me</div>
+        </div>
+        {% else %}
+        <div class="list-header">
+          <div class="list-heading">Blogs</div>
+          <div class="list-description">Writing down what I learn</div>
+        </div>
+        {% endif %}
+
+     
+        <div class="journal-entries">
+            {% for journal in site.journals %}
+              <div class="journal-entry">
+                <h2><a href="{{ journal.url }}">{{ journal.title }}</a></h2>
+                <p class="date">{{ journal.date | date: "%-d %b, %Y" }}</p> 
+                <p>{{ journal.excerpt }}</p>
+                <div class="journal-categories">
+                  {% for category in journal.categories %}
+                    <span class="category">{{ category }}</span>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+      </div>
+    
 
         <footer>
   <div class="footer-left">
@@ -50,10 +69,8 @@
 
   </footer>
 </div>
-        <script src="./assets/js/hover_script.js"></script>
-        <script src="./assets/js/loading.js"></script>
-        <script type="module" src="./assets/js/sidebar.js"></script>
-        <script type="module" src="./assets/js/gallery_loader.js"></script>
+        <script src="/assets/js/hover_script.js"></script>
+        
 </body>
 </html>
 
