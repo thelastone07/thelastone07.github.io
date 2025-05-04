@@ -234,7 +234,9 @@ html, body {
 .list-description {
   text-align : center;
   font-size: 1.1rem;
-  color: #555;
+  color: gray;
+  font-weight: 600;
+  letter-spacing: -.08rem;
 }
 
 .journal-entries {
