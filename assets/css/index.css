@@ -501,9 +501,9 @@ html, body {
 
 @media(max-width: 450px) {
     .fg3 {
-        bottom : 5vh;
+        bottom : 8vh;
         font-size: 4.9rem;
-        letter-spacing: -0.55rem;
+        letter-spacing: -0.5rem;
     }
 }
 
