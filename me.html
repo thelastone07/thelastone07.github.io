@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://c.webfontfree.com/c.js?f=SuisseIntl-Regular" type="text/javascript"></script>
-<title>Journal</title>
-  <link rel="stylesheet" href="/assets/css/post.css" />
-  <link rel="icon" type="image/png" href="/assets/images/mandelbrot.webp">
+  <title>Journal</title>
+  <link rel="stylesheet" href="./assets/css/about.css" />
+  <link rel="icon" type="image/png" href="assets/images/mandelbrot.webp">
 </head>
 <body>
     <div class="page-wrapper">
@@ -20,33 +20,22 @@
           <a class='links' href="/journal"><div class="hover-text" id="Navbar-diary">journal</div></a>
           <a class='links' href="/me"><div class="hover-text" id="Navbar-diary">me</div></a>
         </div>
-      </header> 
+      </header>
+      
+      <div class="about">
+        <div class="image-container"> <img id="profile-pic" src = "./assets/images/profile.jpg"> </div>
+        <div class="about-content">
+            Hey! I am a 22 year old aerospace engineer (by degree) from India with minimal knowledge in that field.
+            I currently pursue chess, music and photography. Apart from that, I want to fall in love with coding.
+            I am comfortable with making web applications and working with AI/ML. I am open to work with anyone passionate about their work.
+            <br>And oh yes, my name is Dhananjaya Swain. 
+        </div>
+        
+      </div>    
 
-      <button class="back-button" onclick="window.history.back();" aria-label="Go back">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-          <circle cx="11" cy="11" r="11" fill="white"/>
-          <polyline points="13,7 9,11 13,15" fill="none" stroke="#D11A2A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
       
-      
-      <div class="content-wrapper">
-        <div class="content-header">
-          <div class="content-title">{{ page.title }}</div>
-          <div class="content-categories">
-            {% for category in page.categories %}
-              <span class="category">{{ category }}</span>
-            {% endfor %}
-          </div>
-          <div class="content-excerpt">{{ page.excerpt }}</div>
-        </div>
-      
-        <div class="content-body">
-          {{ content }}
-        </div>
-      </div>
-      
-      
+
+
         <footer>
   <div class="footer-left">
     <div class="footer-left1"> <p id="footer-black"> Let's build something </p> <p id="footer-red">TOGETHER</p></div> 
@@ -64,8 +53,8 @@
 
   </footer>
 </div>
-        <script src="/assets/js/hover_script.js"></script>
-      
+        <script src="./assets/js/hover_script.js"></script>
+        
 </body>
 </html>
 
