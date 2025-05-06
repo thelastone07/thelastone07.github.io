@@ -1,7 +1,7 @@
 ---
 title: "The current state of things"
 date: 2024-05-06
-categories : ['self', 'update' ]    
+categories : ['self' ]    
 layout: post
 excerpt : 'Changes in my life recently'
 ---
