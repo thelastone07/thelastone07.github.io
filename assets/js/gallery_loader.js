@@ -1,6 +1,6 @@
 import { listFolderImages } from './get_photos.js';
 
-const debounce = (func, wait = 500) => {
+const debounce = (func, wait = 100) => {
     let timeout;
     return (...args) => {
       clearTimeout(timeout);
