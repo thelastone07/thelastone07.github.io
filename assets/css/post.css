@@ -326,6 +326,13 @@ html, body {
   color: #b0171f;
 }
 
+.content-body img{
+  border-radius: 22px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+}
 
 @media only screen and (max-width: 600px) {
   body, .content-container, .content-header, .content-title, .content-categories, .category, .content-excerpt, .content-body {
