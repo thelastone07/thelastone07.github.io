@@ -283,8 +283,9 @@ html, body {
 
 
 .content-body {
-  font-size: 1.08rem;
-  line-height: 1.7;
+  font-family : 'Nunito', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
   color: #222;
   text-align: left; 
 }
@@ -333,6 +334,16 @@ html, body {
   display: block;
   margin: 1.5rem auto;
 }
+
+.content-body h1,
+.content-body h2,
+.content-body h3,
+.content-body h4,
+.content-body h5,
+.content-body h6 {
+  text-align: left;
+}
+
 
 @media only screen and (max-width: 600px) {
   body, .content-container, .content-header, .content-title, .content-categories, .category, .content-excerpt, .content-body {
@@ -402,3 +413,6 @@ html, body {
     
 
     /* backbutton ends here  */
+
+
+
