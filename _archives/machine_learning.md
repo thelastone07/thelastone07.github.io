@@ -51,11 +51,47 @@ We expand our domain. We go into Vector/Matrix Calculus.
 
 #### Normal Equation Solution
 
+Now, the one dimensional $X$ becomes a vector a vector of dimension $n$
 
+$$
+y =[a] *
+\begin{bmatrix}
+X_1 \\
+X_2 \\
+.\\
+.\\
+X_n
+\end{bmatrix}
+ + b
+$$
+b is a constant and doesnot depend on on value $X$, we can add another feature to $X$ whose value is $1$. Therefore, we have
+
+$$
+\begin{align*}
+aX + b &\Rightarrow wX \\
+      &\text{where } w = a \text{ and } b = 0
+\end{align*}
+$$
+
+Finally, we stack all the examples column-wise to get
+$$
+
+X \in \mathbb{R}^{m \times n}\\
+y \in \mathbb{R}^{m}\\
+w \in \mathbb{R}^{n}
+
+$$
+Again, we want to minimize the error in our prediction. Let's introduce a new term - COST here. Noone wants costly things, we want good quality with low cost. We try to minimize the cost here as well.
+
+$$
+J(w) = \frac{1}{2m} \|wX - y \|^2
+$$
+
+We 
 
 ### References 
 
-- For Matrix Calculus here 
+- [Matrix Calculus](https://arxiv.org/pdf/1802.01528) 
 
 
 
