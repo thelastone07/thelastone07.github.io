@@ -50,7 +50,7 @@ Now, look at the popup image. What happens when I click on Enable Reading Mode? 
 Of course, you have come across many json files. Manifest.json seems like one of those json files containing build information and dependencies. But NO!! Manifest.json is the star of the show for extensions. It does contain some of those information but much more than that. This json in responsible for telling the chrome extension store which files are the popup, content and background. It also contains what different permissions are required for your extension to work. 
 
 
-For example cases, you can visit the [Chrome Docs]("https://developer.chrome.com/docs/extensions/get-started"). They have a good example example case.
+For example cases, you can visit the [Chrome Docs]("https://developer.chrome.com/docs/extensions/get-started").
 
 Remember when submiting an extension, to keep the ```permissions``` required to a minimum for a fast approval.
 
