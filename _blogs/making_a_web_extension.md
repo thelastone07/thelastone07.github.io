@@ -68,7 +68,7 @@ Consider checking the webstore for them as well.
 
 
 
-If you find the blog helpful, please let me know. It is highly appreciated. Drop me a text on X or a mail. Any criticism is also most welcome. 
+If you find the blog helpful, please let me know. It is highly appreciated. Drop me a text on X or a mail. Any feedback is welcome. 
 
 
 
