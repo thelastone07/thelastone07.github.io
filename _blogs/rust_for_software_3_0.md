@@ -69,8 +69,8 @@ Depending on your use case, you can evolve your primitive or complex variable to
 
 ### Arc
 - allows shared ownership between multiple threads/processes
-- more expensive than <Rc> because of atomic operations that it supports
-- <Rc> passes reference, <Arc> has ownership
+- more expensive than Rc because of atomic operations that it supports
+- Rc passes reference, Arc has ownership
 ```rust
 let a = Arc::new(5); // create
 let b = Arc::clone(&a); // copy
