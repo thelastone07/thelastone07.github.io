@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://c.webfontfree.com/c.js?f=SuisseIntl-Regular" type="text/javascript"></script>
+  <link rel="stylesheet" href="/assets/css/default.css">
+  <link rel="icon" type="image/png" href="/assets/images/mandelbrot.webp">
+<title>All Posts</title>
+</head>
+<body>
+    <div class="page-wrapper">
+      <header class="Navbar">
+        <div id = "Navbar-left">
+          <a class='links' href="/"><div class="hover-text" id = "Navbar-home">dhananjaya</div></a>
+        </div>
+        <div id = "Navbar-right" >
+          <a class='links' href="/blogs"><div class="hover-text" id = "Navbar-blogs">blogs</div></a>
+          <a class='links' href="/journal"><div class="hover-text" id="Navbar-diary">journal</div></a>
+          <a class='links' href="/me"><div class="hover-text" id="Navbar-diary">me</div></a>
+        </div>
+      </header>
+
+      <div class="list-wrapper">
+        <div class="list-header">
+          <h1 class="list-heading">All Posts</h1>
+          <p class="list-description">Everything I've written, organized by year</p>
+        </div>
+
+        {% assign all_posts = site.blogs | concat: site.journals | sort: 'date' | reverse %}
+        {% assign posts_by_year = all_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+
+        <div class="journal-entries">
+          {% for year_group in posts_by_year %}
+            <div class="year-section">
+              <h2 class="year-heading">{{ year_group.name }}</h2>
+
+              {% for post in year_group.items %}
+                <div class="archive-entry">
+                  <span class="archive-date">{{ post.date | date: "%-d %b" }}</span>
+                  <span class="archive-separator">:</span>
+                  <a href="{{ post.url }}" class="archive-title">{{ post.title }}</a>
+                  {% assign words = post.content | number_of_words %}
+                  {% assign read_time = words | divided_by: 200 %}
+                  {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
+                  <span class="archive-read-time">{{ read_time }} min read</span>
+                </div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <script src="/assets/js/hover_script.js"></script>
+</body>
+</html>

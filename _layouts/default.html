@@ -21,77 +21,122 @@
         </div>
       </header>
 
-      <div class="list-wrapper">
-
-      
+      <div class="hero-section" id="hero">
         {% if page.path == "journal.md" %}
-        <div class="list-header">
-          <div class="list-heading">Journal</div>
-          <div class="list-description">Perpective on things around me</div>
-        </div>
-
-        <div class="journal-entries">
-          {% assign journals = site.journals | sort : 'date' | reverse %}
-            {% for journal in journals %}
-              <div class="journal-entry">
-                {%if journal.cover %}
-                <a href="{{ journal.url | relative_url }}" class="cover-link">
-                  <div class="cover-image-container">
-                    <img src="{{ journal.cover | relative_url }}" alt="{{ journal.title }}" class="cover-image">
-                  </div>
-                </a>
-                {%endif%}
-                <h2><a href="{{ journal.url }}">{{ journal.title }}</a></h2>
-                <div class="first-line">
-                <p class="date">{{ journal.date | date: "%-d %b, %Y" }}</p> 
-                <div class="journal-categories">
-                  {% for category in journal.categories %}
-                    <span class="category">{{ category }}</span>
-                  {% endfor %}
-                </div>
-                </div>
-                <p>{{ journal.excerpt }}</p>
-              </div>
-            {% endfor %}
-          </div>
-      </div>
+          <div class="hero-image hero-image-journal"></div>
         {% else %}
-        <div class="list-header">
-          <div class="list-heading">Blogs</div>
-          <div class="list-description">Writing down what I learn</div>
+          <div class="hero-image hero-image-blogs"></div>
+        {% endif %}
+
+        <div class="page-title-container">
+          {% if page.path == "journal.md" %}
+            <h1 class="page-title">JOURNAL</h1>
+          {% else %}
+            <h1 class="page-title">BLOGS</h1>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="page-description-container">
+        {% if page.path == "journal.md" %}
+          <p class="page-description">Perspective on things around me</p>
+        {% else %}
+          <p class="page-description">Writing down what I learn</p>
+        {% endif %}
+      </div>
+
+      <div class="featured-posts">
+        {% if page.path == "journal.md" %}
+          {% assign featured = site.journals | sort : 'date' | reverse | limit: 3 %}
+        {% else %}
+          {% assign featured = site.blogs | sort : 'date' | reverse | limit: 3 %}
+        {% endif %}
+
+        <div class="featured-large">
+          {% assign post = featured[0] %}
+          {% if post %}
+          {% if post.slug %}
+            {% capture image_path %}/assets/{{ post.slug }}/background.jpg{% endcapture %}
+          {% else %}
+            {% capture post_filename %}{{ post.path | split: '/' | last | replace: '.md', '' }}{% endcapture %}
+            {% capture image_path %}/assets/{{ post_filename }}/background.jpg{% endcapture %}
+          {% endif %}
+          <a href="{{ post.url }}" class="featured-link">
+            <div class="featured-image-container">
+              <img src="{{ image_path | relative_url }}" alt="{{ post.title }}" class="featured-image" onerror="console.log('Failed to load: {{ image_path }}')">
+            </div>
+            <div class="featured-content">
+              <h3 class="featured-title">{{ post.title }}</h3>
+              <div class="featured-meta">
+                <span class="featured-date">{{ post.date | date: "%-d %b, %Y" }}</span>
+                <span class="featured-divider">•</span>
+                {% assign words = post.content | number_of_words %}
+                {% assign read_time = words | divided_by: 200 %}
+                {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
+                <span class="featured-read">{{ read_time }} min read</span>
+              </div>
+            </div>
+          </a>
+          {% endif %}
         </div>
 
-         <div class="journal-entries">
-          {% assign blogs = site.blogs | sort : 'date' | reverse %}
-            {% for blog in site.blogs %}
-              <div class="journal-entry">
-                 {%if blog.cover %}
-                <a href="{{ blog.url | relative_url }}" class="cover-link">
-                  <div class="cover-image-container">
-                    <img src="{{ journal.cover | relative_url }}" alt="{{ blog.title }}" class="cover-image">
+        <div class="featured-small-container">
+          {% for i in (1..2) %}
+            {% assign post = featured[i] %}
+            {% if post %}
+            {% if post.slug %}
+              {% capture image_path %}/assets/{{ post.slug }}/background.jpg{% endcapture %}
+            {% else %}
+              {% capture post_filename %}{{ post.path | split: '/' | last | replace: '.md', '' }}{% endcapture %}
+              {% capture image_path %}/assets/{{ post_filename }}/background.jpg{% endcapture %}
+            {% endif %}
+            <div class="featured-small">
+              <a href="{{ post.url }}" class="featured-link">
+                <div class="featured-image-container">
+                  <img src="{{ image_path | relative_url }}" alt="{{ post.title }}" class="featured-image" onerror="console.log('Failed to load: {{ image_path }}')">
+                </div>
+                <div class="featured-content">
+                  <h3 class="featured-title">{{ post.title }}</h3>
+                  <div class="featured-meta">
+                    <span class="featured-date">{{ post.date | date: "%-d %b, %Y" }}</span>
+                    <span class="featured-divider">•</span>
+                    {% assign words = post.content | number_of_words %}
+                    {% assign read_time = words | divided_by: 200 %}
+                    {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
+                    <span class="featured-read">{{ read_time }} min read</span>
                   </div>
-                </a>
-                {%endif%}
-                <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
-                <div class="first-line">
-                <p class="date">{{ blog.date | date: "%-d %b, %Y" }}</p> 
-                <div class="journal-categories">
-                  {% for category in blog.categories %}
-                    <span class="category">{{ category }}</span>
-                  {% endfor %}
                 </div>
-                </div>
-                <p>{{ blog.excerpt }}</p>
-              </div>
-            {% endfor %}
-          </div>
+              </a>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
-        {% endif %}
-    
-        
+
+      <div class="see-all-container">
+        <a href="/archive" class="see-all-link">see all posts →</a>
+      </div>
+
 </div>
         <script src="/assets/js/hover_script.js"></script>
-        
+        <script>
+          // Hide hero section on scroll
+          let lastScroll = 0;
+          const hero = document.getElementById('hero');
+
+          window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+              hero.classList.add('hidden');
+            } else {
+              hero.classList.remove('hidden');
+            }
+
+            lastScroll = currentScroll;
+          });
+        </script>
+
 </body>
 </html>
 

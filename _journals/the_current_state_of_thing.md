@@ -1,9 +1,10 @@
 ---
 title: "The current state of things"
 date: 2025-05-06
-categories : ['self' ]    
+categories : ['self' ]
 layout: post
 excerpt : 'Changes in my life recently'
+slug: the_current_state_of_things
 ---
 
 Nightmares to dreams - that would be the journey if I could sum it up. I want to talk about the emotions, the fundamental changes in perspective towards life and my reaction to all. I have been remodeled - filled with hope, passion and discipline. I hope I shall read this again during my time of distress and it would support me to go through it all again. 

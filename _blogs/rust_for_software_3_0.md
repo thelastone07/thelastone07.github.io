@@ -28,20 +28,20 @@ Any complex variables (like string, Box) can have variable size. Unlike real lif
 
 ### Pointers
 
-Before jumping into what this brand new term Ownership is, it is imperative to have some pointer knowledges. If you are familiar with C, then you must have come across terms like pointers, memory and references and it must have been hell. Watch this [video](https://www.youtube.com/watch?v=2ybLD6_2gKM) by Low Level if you are completely unfamiliar with pointers. 
+Before jumping into what this brand new term Ownership is, it is imperative to have some pointer knowledge. If you are familiar with C, then you must have come across terms like pointers, memory and references and it must have been hell. Watch this [video](https://www.youtube.com/watch?v=2ybLD6_2gKM) by Low Level if you are completely unfamiliar with pointers. 
 
 My interpretation of pointers is very simple and I find them very logical. Imagine what happens when you copy a value from one variable to other. If it is an integer, float, double, boolean, all is good, you copy the bits from the one address to another. Just 8 bytes of data. What happens when you have to copy 120 bytes of data ? Copying the whole data is just inefficient and your RAM is limited. Pointer solves this problem by passing the address (8 bytes or 4 bytes depending on system configuration).
 
 ### Variable types and ownership
 
-Consider data being some sort of secret. The one who was assigned in the beginning is the owner of the data. Once the owner dies (goes out of scope), the memory (and the value) is freed. Variables in stack memory is dropped automatically. Variables in heap memory has to implement a drop implemenation. Modern version of Rusts implements this for most of the inbuilt complex types. Incase, you are building a custom type, make sure to implement drop.
+Consider data being some sort of secret. The one who was assigned in the beginning is the owner of the data. Once the owner dies (goes out of scope), the memory (and the value) is freed. Variables in stack memory is dropped automatically. Variables in heap memory has to implement a drop implementation. Modern version of Rusts implements this for most of the inbuilt complex types. In case, you are building a custom type, make sure to implement drop.
 
 ### Moving and borrowing
 This is one of the most fundamental concepts in Rust. It deals with moving/borrowing values from one variable to other. 
 
-Stack variables (the smaller ones, the memory cheap ones) when assigned to another variable or passed as a parameter, copies their value to a new address scope. Heap variables (the costly ones, the memory eaters) when assinged to another variable or passed as a parameter, gets the ownership of the variable. The previous holder of ownerhsip is dropped and can't use the value anymore. 
+Stack variables (the smaller ones, the memory cheap ones) when assigned to another variable or passed as a parameter, copies their value to a new address scope. Heap variables (the costly ones, the memory eaters) when assigned to another variable or passed as a parameter, gets the ownership of the variable. The previous holder of ownership is dropped and can't use the value anymore. 
 
-When you own some object, you can lend it to some other person. This concept is called borrowing and also exitst in Rust. When you borrow something in real life, I hope you make sure how the object is being used. Similarly, you have to define how the borrowed object will be used in Rust.
+When you own some object, you can lend it to some other person. This concept is called borrowing and also exist in Rust. When you borrow something in real life, I hope you make sure how the object is being used. Similarly, you have to define how the borrowed object will be used in Rust.
 
 Borrowing avoids moving of the data for complex variable. When you lend data, you have to ensure whether they are being changed or not. Therefore, borrowed variable are either mutable or immutable. There can be multiple immutable variables and just one mutable variable. Both can't exist at same time. This rule comes into picture to avoid race conditions where two different processes try to edit the same value. There are certain tools that can be used to deal with mutability in multiple processes which I'll be talking about later. 
 
@@ -71,15 +71,18 @@ Depending on your use case, you can evolve your primitive or complex variable to
 - allows shared ownership between multiple threads/processes
 - more expensive than <Rc> because of atomic operations that it supports
 - <Rc> passes reference, <Arc> has ownership
+
 ```rust
 let a = Arc::new(5); // create
 let b = Arc::clone(&a); // copy
 *a += 1; // throws error
 ```
+
 ### Mutex
 - Mutal Exclusion Lock
 - enables to handle thread safe data properly
 - often paired with Arc
+
 ```rust
 let a = Mutex::new(5);
 {
@@ -87,8 +90,9 @@ let a = Mutex::new(5);
     *num += 1; // modifies safely
     // a.lock() is a Option/Result object (more on this later)
 }
-print("{:?}",a); // 6
+println!("{:?}",a); // 6
 ```
+
 ```rust
 
 let counter = Arc::new(Mutex::new(5));
@@ -99,12 +103,13 @@ let fake_counter = Arc::clone(&counter); // Arc lets you have multiple owner
     let mut num2 = counter.lock().unwrap(); // creates deadlock
     *num2 += 2;
 }
-print("{:?}",counter);
+println!("{:?}",counter);
 ```
-The second case creates a deadlock because I am trying to access the lock in the same process. The process will release the Mutex gaurd once the process finishes but I am waiting to get the lock to finish the process. Hence, the deadlock. Therefore, Mutex is generally used in different threads.
+
+The second case creates a deadlock because I am trying to access the lock in the same process. The process will release the Mutex guard once the process finishes but I am waiting to get the lock to finish the process. Hence, the deadlock. Therefore, Mutex is generally used in different threads.
 
 ### Enums
-- used for state managment
+- used for state management
 - each filed in Enums can carry further information
 - used with matches and if-lets (more on this later)
 ```rust
@@ -125,8 +130,9 @@ enum Direction {
 
 ### <>
 - generic type parameter
-- trait bounds <T: someFn>(x : &T); tells Rust thta T implements someFn
+- trait bounds <T: someFn>(x : &T); tells Rust that T implements someFn
 - lifetime declaration
+
 ```rust
 //Generic type parameter
 struct Point<T> {
@@ -157,16 +163,18 @@ impl Summary<&str> for Article {
 let article1 = Article {title : String::from{"Hello World"}};
 println!({}, art.summary("DJ")); //prints Hello World:DJ
 
-//Liftime example
+//Lifetime example
 
 fn longest<'a>(s1: &'a str, s2: &'a str) -> &'a str {
     if s1.len() > s2.len() {s1} else {s2}
 }
 ```
+
 For the last example of lifetime, the declaration tells Rust that the returned reference will exist in the memory as long as the parameters. This is an assurance for Rust that something bad won't happen at Runtime. 
 
 ### FROM & INTO
 - From<T> implemented from a type defines how to create it from another type
+
 ```rust
 struct MyType(i32);
 
@@ -178,13 +186,16 @@ impl From<i32> for MyType {
 
 let x = MyType::from(2i32); // convert 2i32 to MyType
 ``` 
+
 - Into is the reciprocal of From
+
 ```rust
 let x = 42;
 let my_type : MyType = x.into(); 
 ```
 
 ### MATCH 
+
 ```rust
 //Basic matches
 enum Direction {
@@ -240,6 +251,7 @@ println!("{}",num) // prints a nice prime number
 
 ### IF LET 
 Instead of 
+
 ```rust
 let x = Some(42);
 match x {
@@ -247,18 +259,22 @@ match x {
     None => ()
 }
 ```
+
 We can do this
+
 ```rust
 if let Some(val) = x {
     println!("{}",val);
 }
 ```
+
 - Often used when dealing with Option enum, if-else, matching only certain fields of enums.
 
 ### ? 
 - it is a shorthand operator for handling errors. Heavily used in handling Api calls. 
 
 Instead of 
+
 ```rust
 let x = fn(); // let fn() return some Result or Option
 match x {
@@ -267,10 +283,12 @@ match x {
 } // x equals v or returns an Err(e)
 ```
 we can do this
+
 ```rust
 let x = fn()?;
 ```
-The ? at the end handles the ```match``` code. If there is an error, x holds value if fn() returns some value or the function throws an error Err(e) automically and exits. 
+
+The ? at the end handles the ```match``` code. If there is an error, x holds value if fn() returns some value or the function throws an error Err(e) automatically and exits. 
 
 ### range
 
@@ -281,9 +299,10 @@ The ? at the end handles the ```match``` code. If there is an error, x holds val
 
 ### || and move
 
-- || are called closures. It is used to declare inline function
+- ```||``` are called closures. It is used to declare inline function
 - closures can capture variables from outer scope as well
 - closures can be Fn, FnMut, FnOnce 
+
 ```rust
 // basic example
 let give_five = |x:i32| -> i32 {x + 5};
@@ -293,11 +312,13 @@ println!("{}",give_five(42));
 let y = 5
 let add_y = |x| x+y; // returns x+y, annotations can be dropped if compiler is comfortable
 ```
+
 x is passed by value but what about y? y can be mutable reference or move depending on the type of function closure is - fn, fnMut, fnOnce.
 - Fn : borrows immutably
 - FnMut : borrows mutably
 - FnOnce : takes ownership (using move)
 - compiler chooses automatically what kind of function your closure is
+
 ```rust
 //explicit definitions
 
@@ -307,8 +328,9 @@ mod_x(5);
 
 let s = String::from("hello");
 let fnOnce = move || println!("{} world",s); // prints hello world
-println!("{}",s); // throws error, ownerhsip has passed using move
+println!("{}",s); // throws error, ownership has passed using move
 ```
+
 ## Some weird and tips
 
 - No references can be returned in a function unless they are the passed reference.
@@ -318,16 +340,16 @@ println!("{}",s); // throws error, ownerhsip has passed using move
 - You can implement functions that are not defined in the struct body using ```impl```.
 - In match, iter, etc the pattern/variable takes ownership if used directly.
 - In order to avoid passing ownership in ```match```, use ```ref```. & cannot be used instead.(Newer version isn't strict about this and handles automatically; careful while working with older versions)
-- Use & infront of variable in order to match references. 
+- Use & in front of variable in order to match references. 
 - ```let ref a = b;``` and 
 ```let a = &b;``` does the same thing.
-- Unused variable warnings can be suppressed by deadcode config and starting the variable with an underscore.
+- Unused variable warnings can be suppressed by dead code config and starting the variable with an underscore.
 - Variable shadowing is allowed (same var name in inner scope).
 - Arrays let others borrow their slices.
 - The last statement, if without a semicolon, is returned.
 - Scared of references and pointers? Handle them during compile time.
 
 ## References
-1. https://huonw.github.io/blog/2025/03/rust-fallthrough/ - talks about ```match``` very extensively
-2. https://doc.rust-lang.org/rust-by-example/ - the official rust tutorial. It is very well documented and thorough
-3. https://www.integralist.co.uk/posts/rust-ownership/ - my starter place
+1. [https://huonw.github.io/blog/2025/03/rust-fallthrough/](https://huonw.github.io/blog/2025/03/rust-fallthrough/)- talks about ```match``` very extensively
+2. [https://doc.rust-lang.org/rust-by-example/](https://doc.rust-lang.org/rust-by-example/) - the official rust tutorial. It is very well documented and thorough
+3. [https://www.integralist.co.uk/posts/rust-ownership/](https://www.integralist.co.uk/posts/rust-ownership/) - my starter place

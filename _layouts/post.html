@@ -7,7 +7,12 @@
 <title>Journal</title>
   <link rel="stylesheet" href="/assets/css/post.css" />
   <link rel="icon" type="image/png" href="/assets/images/mandelbrot.webp">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Prism.js for syntax highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
 
   <script>
   window.MathJax = {
@@ -38,38 +43,79 @@
         </div>
       </header> 
 
-      <button class="back-button" onclick="window.history.back();" aria-label="Go back">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-          <circle cx="11" cy="11" r="11" fill="white"/>
-          <polyline points="13,7 9,11 13,15" fill="none" stroke="#D11A2A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Hamburger Menu Button -->
+      <button class="toc-button" id="tocButton" aria-label="Table of Contents">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <line x1="3" y1="6" x2="21" y2="6" stroke="#4a5568" stroke-width="2" stroke-linecap="round"/>
+          <line x1="3" y1="12" x2="21" y2="12" stroke="#4a5568" stroke-width="2" stroke-linecap="round"/>
+          <line x1="3" y1="18" x2="21" y2="18" stroke="#4a5568" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
+
+      <!-- Table of Contents Menu -->
+      <nav class="toc-menu" id="tocMenu">
+        <div class="toc-header">
+          <h3>Table of Contents</h3>
+          <button class="toc-close" id="tocClose">&times;</button>
+        </div>
+        <ul class="toc-list" id="tocList">
+          <!-- Will be populated by JavaScript -->
+        </ul>
+      </nav>
+      <div class="toc-overlay" id="tocOverlay"></div>
       
       <div class="content-wrapper">
         <div class="content-header">
           <div class="content-title">{{ page.title }}</div>
-          <div class="content-categories">
-            {% for category in page.categories %}
-              <span class="category">{{ category }}</span>
-            {% endfor %}
+          <div class="content-meta">
+            <span class="content-date">{{ page.date | date: "%-d %B, %Y" }}</span>
+            <span class="meta-divider">•</span>
+            {% assign words = content | number_of_words %}
+            {% assign read_time = words | divided_by: 200 %}
+            {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
+            <span class="content-read-time">{{ read_time }} min read</span>
           </div>
-          <div class="content-excerpt">{{ page.excerpt }}</div>
         </div>
-      
+
         <div class="content-body" id="content-body">
           {{ content }}
         </div>
+
+        <div class="comments-section">
+          <script src="https://giscus.app/client.js"
+                  data-repo="thelastone07/thelastone07.github.io"
+                  data-repo-id="R_kgDOM4RbYg"
+                  data-category="General"
+                  data-category-id="DIC_kwDOM4RbYs4CxbcN"
+                  data-mapping="pathname"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="top"
+                  data-theme="catppuccin_latte"
+                  data-lang="en"
+                  data-loading="lazy"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </div>
       </div>
-      
-      <button id="goTopBtn" title="Go to top">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-        <path d="M342.6 81.4C330.1 68.9 309.8 68.9 297.3 81.4L137.3 241.4C124.8 253.9 124.8 274.2 137.3 286.7C149.8 299.2 170.1 299.2 182.6 286.7L288 181.3L288 552C288 569.7 302.3 584 320 584C337.7 584 352 569.7 352 552L352 181.3L457.4 286.7C469.9 299.2 490.2 299.2 502.7 286.7C515.2 274.2 515.2 253.9 502.7 241.4L342.7 81.4z"/></svg>
-      </button>
+
 
 </div>
         <script src="/assets/js/hover_script.js"></script>
         <script src="/assets/js/progress_bar.js"></script>
-      
+        <script src="/assets/js/toc.js"></script>
+
+        <!-- Prism.js scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-rust.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script src="/assets/js/code-copy.js"></script>
+
 </body>
 </html>
 

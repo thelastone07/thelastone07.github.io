@@ -25,7 +25,7 @@ html, body {
       left: 0;
       width: 100%;
       z-index: 999;
-      background-color: rgba(255,255,255,0.1);
+      background-color: transparent;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -249,11 +249,7 @@ html, body {
     right: -4px;
     bottom: -4px;
     border-radius: 50%;
-    background: conic-gradient(
-      transparent 270deg, 
-      #ff0000, /* Start color */
-      transparent 360deg
-    );
+    background: #e0e0e0;
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s;

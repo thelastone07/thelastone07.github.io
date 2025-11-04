@@ -8,7 +8,7 @@ excerpt : 'creating simple tools to ease my life led to this'
 
 So you started with HTML and CSS and kaboom, magic happens! You see changing some lines of code makes something happen. Unlike the previous case of sorting, solving math problems, you can actually see your code make something happen. This was the feeling I got when I coded my first website. It has been a long time since and this time I am dabbling with some extensions.
 
-![A picture of extension](/assets/making_a_web_extension/house_extension.jpg)
+![A picture of extension](/assets/making_a_web_extension/house_extension.png)
 
 _Wrong image. My bad. AI sometimes get confused while writing a blog._
 
