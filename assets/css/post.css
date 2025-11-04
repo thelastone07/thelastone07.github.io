@@ -344,16 +344,270 @@ html, body {
   text-align: left;
 }
 
+/* Code blocks and inline code styling */
+.content-body code {
+  font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+  background-color: #f5f5f5;
+  border: 1px solid #e1e1e1;
+  border-radius: 3px;
+  padding: 0.15em 0.4em;
+  color: #d11a2a;
+  font-weight: 500;
+}
+
+.content-body pre {
+  background-color: #282c34;
+  border-radius: 8px;
+  padding: 1.2em 1.5em;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #d11a2a;
+}
+
+.content-body pre code {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: #abb2bf;
+  font-size: 0.95em;
+  line-height: 1.6;
+  font-weight: 400;
+  display: block;
+  overflow-x: auto;
+}
+
+/* Syntax highlighting (Rouge/Pygments compatible) */
+.content-body .highlight {
+  background-color: #282c34;
+  border-radius: 8px;
+  margin: 1.5em 0;
+  overflow-x: auto;
+  border-left: 4px solid #d11a2a;
+}
+
+.content-body .highlight pre {
+  margin: 0;
+  border: none;
+  border-left: none;
+  box-shadow: none;
+}
+
+/* Line numbers for code blocks */
+.content-body .highlight .lineno {
+  color: #5c6370;
+  padding-right: 1em;
+  user-select: none;
+  border-right: 1px solid #3e4451;
+  margin-right: 1em;
+}
+
+/* Blockquotes styling */
+.content-body blockquote {
+  border-left: 4px solid #d11a2a;
+  margin: 1.5em 0;
+  padding: 0.8em 1.2em;
+  background-color: #f9f9f9;
+  font-style: italic;
+  color: #555;
+  border-radius: 0 4px 4px 0;
+}
+
+.content-body blockquote p {
+  margin: 0.5em 0;
+}
+
+.content-body blockquote p:first-child {
+  margin-top: 0;
+}
+
+.content-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Nested blockquotes */
+.content-body blockquote blockquote {
+  border-left-color: #999;
+  margin-left: 1em;
+}
+
+/* Tables styling */
+.content-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.content-body thead {
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #d11a2a;
+}
+
+.content-body th {
+  padding: 0.8em 1em;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+}
+
+.content-body td {
+  padding: 0.8em 1em;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.content-body tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.content-body tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Table responsiveness */
+.content-body table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .content-body table {
+    font-size: 0.9em;
+  }
+
+  .content-body th,
+  .content-body td {
+    padding: 0.6em 0.8em;
+  }
+}
+
+/* Horizontal rules */
+.content-body hr {
+  border: none;
+  border-top: 2px solid #e1e1e1;
+  margin: 2em 0;
+  opacity: 0.6;
+}
+
+/* Enhanced list styling */
+.content-body ul,
+.content-body ol {
+  padding-left: 2em;
+}
+
+.content-body li {
+  margin-bottom: 0.5em;
+}
+
+.content-body li > ul,
+.content-body li > ol {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Task lists (GitHub-style checkboxes) */
+.content-body input[type="checkbox"] {
+  margin-right: 0.5em;
+}
+
+.content-body .task-list-item {
+  list-style-type: none;
+  margin-left: -1.5em;
+}
+
+/* Keyboard key styling */
+.content-body kbd {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  color: #333;
+  display: inline-block;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: 0.85em;
+  padding: 0.1em 0.4em;
+  white-space: nowrap;
+}
+
+/* Strong and emphasis */
+.content-body strong {
+  font-weight: 700;
+  color: #111;
+}
+
+.content-body em {
+  font-style: italic;
+}
+
+/* Abbreviations */
+.content-body abbr[title] {
+  border-bottom: 1px dotted #999;
+  cursor: help;
+  text-decoration: none;
+}
+
+/* Definition lists */
+.content-body dl {
+  margin: 1.5em 0;
+}
+
+.content-body dt {
+  font-weight: 600;
+  margin-top: 1em;
+  color: #333;
+}
+
+.content-body dd {
+  margin-left: 2em;
+  margin-bottom: 0.5em;
+  color: #555;
+}
+
+/* Code block language label (optional) */
+.content-body pre[class*="language-"]::before {
+  content: attr(class);
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #d11a2a;
+  color: white;
+  padding: 0.2em 0.6em;
+  font-size: 0.75em;
+  border-radius: 0 8px 0 4px;
+  text-transform: uppercase;
+}
+
 
 @media only screen and (max-width: 600px) {
   body, .content-container, .content-header, .content-title, .content-categories, .category, .content-excerpt, .content-body {
-    font-size: 0.92rem; 
+    font-size: 0.92rem;
   }
   .content-title {
     font-size: 1.3rem;
   }
   .content-excerpt {
     font-size: 1rem;
+  }
+
+  /* Mobile code block adjustments */
+  .content-body pre {
+    padding: 1em;
+    border-radius: 6px;
+    font-size: 0.85em;
+  }
+
+  .content-body code {
+    font-size: 0.85em;
+  }
+
+  .content-body blockquote {
+    padding: 0.6em 1em;
+    margin: 1em 0;
   }
 }
 
