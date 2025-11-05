@@ -96,7 +96,7 @@ html, body {
 
 .bg1{
     position : absolute;
-    z-index : -1;
+    z-index : 0;
     top : 0;
     left : 0;
     height : 100vh;
@@ -109,18 +109,18 @@ html, body {
     font-family:  'Suisseintl Webxl', Arial, sans-serif;
     margin-top : 20vh;
     padding : 5vh;
-    filter: blur(2px);
+    filter: blur(1.6px);
 }
 
 .bg1-big {
     font-size: 3rem;
     font-weight: 600;
     letter-spacing: -0.3rem;
-    color : rgb(202, 202, 202);
+    color : rgb(160, 160, 160);
 }
 
 .bg1-tilt-left {
-    color : rgb(202, 202, 202);
+    color : rgb(160, 160, 160);
     transform-origin: bottom right;
     transform : rotate(-90deg);
     width : fit-content;
@@ -140,7 +140,7 @@ html, body {
 }
 
 .bg1-tilt-right {
-    color : rgb(202, 202, 202);
+    color : rgb(160, 160, 160);
     transform-origin: bottom left;
     transform : rotate(90deg);
     width : fit-content;
@@ -148,7 +148,7 @@ html, body {
     font-weight : 600;
 }
 #bg1-straight {
-    color : rgb(202, 202, 202);
+    color : rgb(160, 160, 160);
     font-size : 0.5rem;
 }
 #bg1-tilt-3 {
@@ -179,7 +179,7 @@ html, body {
     .bg1 {
         margin-top: 30vh;
         padding: 2vh;
-        filter: blur(1.3px);
+        filter: blur(0.6px);
     }
     .bg1-big {
         font-size: 1.2rem;
