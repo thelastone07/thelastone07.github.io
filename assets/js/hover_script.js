@@ -28,7 +28,7 @@ hoverElements.forEach(el => {
     el.dataset.original = el.textContent;
 
     el.addEventListener('mouseenter', () => {
-        el.style.color = 'red';
+        el.style.color = 'var(--accent-strong)';
         el.style.cursor = 'pointer';
         const originalText = el.dataset.original;
         const index = get_index(originalText.length);

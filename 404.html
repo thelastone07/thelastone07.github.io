@@ -8,8 +8,8 @@
   <link rel="icon" type="image/png" href="assets/images/mandelbrot.webp">
   <style>
     :root {
-      --color-black: #161616;
-      --color-white: #fff;
+      --color-black: var(--bg);
+      --color-white: var(--title);
       --size: 170px;
     }
 
@@ -35,7 +35,7 @@
 
     .hover-text {
         font-size : 1rem;
-        color : rgb(154, 154, 154);
+        color : var(--body);
       }
     .hover-text:hover {
       text-decoration: underline;
@@ -232,6 +232,8 @@
 
     }
   </style>
+  <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/assets/css/theme.css">
 </head>
 <body>
   <div class="quote">404: this page existed and didn't</div>
@@ -251,6 +253,7 @@
   </div>
 
   <a class = 'links'href="/"><div class="hover-text">home</div> </a>
+<script src="/assets/js/theme.js"></script>
 </body>
 </html>
 
@@ -283,7 +286,7 @@ hoverElements.forEach(el => {
     el.dataset.original = el.textContent;
 
     el.addEventListener('mouseenter', () => {
-        el.style.color = 'red';
+        el.style.color = 'var(--accent-strong)';
         el.style.cursor = 'pointer';
         const originalText = el.dataset.original;
         const index = get_index(originalText.length);

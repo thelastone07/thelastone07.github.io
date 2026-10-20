@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="/assets/css/listing.css">
   <link rel="icon" type="image/png" href="/assets/images/mandelbrot.webp">
 <title>{{ page.title | capitalize }}</title>
+  <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/assets/css/theme.css">
 </head>
 <body class="listing-page">
     <div class="page-wrapper">
@@ -57,5 +59,6 @@
       </ul>
     </div>
     <script src="/assets/js/hover_script.js"></script>
+<script src="/assets/js/theme.js"></script>
 </body>
 </html>

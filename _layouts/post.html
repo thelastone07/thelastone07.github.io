@@ -28,6 +28,8 @@
 </script>
 
 
+  <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/assets/css/theme.css">
 </head>
 <body>
   <div id="scrollProgress"></div>
@@ -46,9 +48,9 @@
       <!-- Hamburger Menu Button -->
       <button class="toc-button" id="tocButton" aria-label="Table of Contents">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <line x1="3" y1="6" x2="21" y2="6" stroke="#4a5568" stroke-width="2" stroke-linecap="round"/>
-          <line x1="3" y1="12" x2="21" y2="12" stroke="#4a5568" stroke-width="2" stroke-linecap="round"/>
-          <line x1="3" y1="18" x2="21" y2="18" stroke="#4a5568" stroke-width="2" stroke-linecap="round"/>
+          <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
 
@@ -116,6 +118,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
         <script src="/assets/js/code-copy.js"></script>
 
+<script src="/assets/js/theme.js"></script>
 </body>
 </html>
 

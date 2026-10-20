@@ -25,7 +25,7 @@ body {
     left: 0;
     width: 100%;
     z-index: 999;
-    background-color: #e0e0e0;
+    background-color: var(--bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,7 +45,7 @@ body {
 }
 
 #Navbar-home, #Navbar-photos, #Navbar-blogs, #Navbar-diary {
-    color: rgb(181, 181, 181);
+    color: var(--body);
     font-size: 1.3rem;
     font-family: 'Suisseintl Webxl', Arial, sans-serif; 
     cursor: pointer;
@@ -58,12 +58,12 @@ body {
 
 .links {
   text-decoration: none;
-  color: rgb(181, 181, 181);
+  color: var(--body);
 }
 
 #Navbar-photos:hover, #Navbar-blogs:hover, #Navbar-diary:hover {
     text-decoration: underline;
-    color: #ff5555;
+    color: var(--title);
 }
 
 @media (max-width: 768px) {
@@ -130,15 +130,15 @@ body {
     letter-spacing: clamp(-0.1rem, -0.1vw - 0.05rem, -0.05rem);
   }
   #footer-black {
-     color : gray;
+     color: var(--muted);
      filter: blur(1px);
   }
   #footer-red {
-    color : #ff0000e0;
+    color : color-mix(in srgb, var(--accent-strong) 88%, transparent);
   }
 
   .footer-left-red2 {
-    color : #ff0000e0;
+    color : color-mix(in srgb, var(--accent-strong) 88%, transparent);
     font-size: clamp(1rem, 1.2vw + 0.3rem, 1.5rem); 
     font-weight: 700;
     letter-spacing: clamp(-0.07rem, -0.07vw - 0.02rem, -0.03rem);
@@ -169,7 +169,7 @@ body {
     
   }
   .link {
-    color: rgb(181, 181, 181);
+    color: var(--body);
     font-family: 'Suisseintl Webxl', Arial, sans-serif; 
     cursor: pointer;
     transition: color 0.2s;
@@ -181,7 +181,7 @@ body {
 
     .link:hover {
         text-decoration: underline;
-        color: #ff5555;
+        color: var(--title);
     }
 
 
@@ -216,7 +216,7 @@ body {
   height: 100vh;
   padding-top: 60px;
   z-index: 1000;
-  background: #e0e0e0;
+  background: var(--bg);
   backdrop-filter: blur(3px);
   box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
   transition: left 0.4s cubic-bezier(.36, -0.01, 0, .77);
@@ -246,7 +246,7 @@ body {
   display: block;
   height: 3px;
   width: 100%;
-  background: #e0e0e0;
+  background: var(--bg);
   border-radius: 2px;
   transition: transform 0.4s cubic-bezier(.4, 2, .6, 1), opacity 0.4s cubic-bezier(.4, 2, .6, 1);
 }
@@ -285,7 +285,7 @@ body {
   font-size: 1.1em;
   letter-spacing: -.1em;
   font-weight: 600;
-  color: #666;
+  color: var(--body);
   opacity: 0.3;
   transform: scale(0.8);
   filter: blur(2px);
@@ -298,7 +298,7 @@ body {
   opacity: 1;
   transform: scale(1.18);
   filter: blur(0);
-  color: #d81414b2;
+  color: color-mix(in srgb, var(--accent-strong) 70%, transparent);
   font-size: 1.3em !important;
   letter-spacing: -.12em !important;
   font-weight: 600;
@@ -311,7 +311,7 @@ body {
   opacity: 0.6 ;
   transform: scale(1);
   filter: blur(0.5px);
-  color: #444;
+  color: var(--body);
   pointer-events: auto;
 }
 
@@ -320,7 +320,7 @@ body {
   opacity: 0.45;
   transform: scale(0.9);
   filter: blur(1.2px);
-  color: #999;
+  color: var(--muted);
   pointer-events: auto;
 }
 
@@ -436,7 +436,7 @@ body {
   font-family: 'Suisseintl Webxl', Arial, sans-serif;
   font-weight: 600;
   letter-spacing: -.08em;
-  color : gray;
+  color: var(--muted);
   text-align : center;
   margin-top : 10vh;
 }

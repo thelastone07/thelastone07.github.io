@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const headings = contentBody.querySelectorAll('h1, h2, h3');
 
     if (headings.length === 0) {
-      tocList.innerHTML = '<li style="padding: 10px; color: #888;">No headings found</li>';
+      tocList.innerHTML = '<li style="padding: 10px; color: var(--muted);">No headings found</li>';
       return;
     }
 

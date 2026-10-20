@@ -3,7 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-color: #e0e0e0;
+    background-color: var(--bg);
   }
 
   body {
@@ -46,7 +46,7 @@ html, body {
   }
   
   #Navbar-home, #Navbar-photos, #Navbar-blogs, #Navbar-diary {
-      color: rgb(181, 181, 181);
+      color: var(--body);
       font-size: 1.3rem;
       font-family: 'Suisseintl Webxl', Arial, sans-serif; 
       cursor: pointer;
@@ -59,12 +59,12 @@ html, body {
   
   .links {
     text-decoration: none;
-    color: rgb(181, 181, 181);
+    color: var(--body);
   }
   
   #Navbar-photos:hover, #Navbar-blogs:hover, #Navbar-diary:hover {
       text-decoration: underline;
-      color: #ff5555;
+      color: var(--title);
   }
   
   @media (max-width: 768px) {
@@ -111,7 +111,7 @@ html, body {
 .content-wrapper {
   max-width: 800px;
   margin: 5rem auto 5rem auto;
-  background-color: #e0e0e0;
+  background-color: var(--bg);
   border-radius: 10px;
   box-sizing: border-box;
   font-family: 'Suisseintl Webxl', Arial, sans-serif;
@@ -139,7 +139,7 @@ html, body {
 
 .content-header {
   margin-bottom: 2rem;
-  border-bottom: 2px solid #d1d1d1;
+  border-bottom: 2px solid var(--line);
   padding-bottom: 1rem;
   text-align: center;
 }
@@ -148,7 +148,7 @@ html, body {
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #4a5568;
+  color: var(--title);
   letter-spacing: -0.1rem;
   line-height: 1.2;
   text-align: center;
@@ -160,7 +160,7 @@ html, body {
   justify-content: center;
   gap: 0.5rem;
   font-size: 0.95rem;
-  color: #888;
+  color: var(--muted);
   margin-bottom: 0.5rem;
 }
 
@@ -170,7 +170,7 @@ html, body {
 }
 
 .meta-divider {
-  color: #ccc;
+  color: var(--muted);
 }
 
 
@@ -179,9 +179,9 @@ html, body {
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.34;
-  color: #222;
+  color: var(--title);
   text-align: left;
-  background: #e0e0e0;
+  background: var(--bg);
 }
 
 
@@ -203,7 +203,7 @@ html, body {
 
 .content-body h2 {
   padding-bottom: 0.5em;
-  border-bottom: 2px solid #d1d1d1;
+  border-bottom: 2px solid var(--line);
 }
 
 .content-body p {
@@ -218,12 +218,12 @@ html, body {
 
 
 .content-body a {
-  color: #4682b4;
+  color: var(--title);
   text-decoration: underline;
   transition: color 0.2s;
 }
 .content-body a:hover {
-  color: #2e5a7d;
+  color: var(--title);
 }
 
 .content-body img{
@@ -247,11 +247,11 @@ html, body {
 .content-body code {
   font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
   font-size: 0.9em;
-  background-color: #d4d4d4;
-  border: 1px solid #b8b8b8;
+  background-color: var(--line);
+  border: 1px solid var(--line);
   border-radius: 3px;
   padding: 0.15em 0.4em;
-  color: #000;
+  color: var(--title);
   font-weight: 500;
 }
 
@@ -260,14 +260,14 @@ html, body {
   position: relative;
   margin: 1.5em 0;
   border-radius: 8px;
-  background: #d4d4d4;
+  background: var(--line);
   overflow: hidden;
-  border: 2px solid #b8b8b8;
+  border: 2px solid var(--line);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .content-body pre {
-  background-color: #d4d4d4 !important;
+  background-color: var(--line) !important;
   border-radius: 0;
   padding: 1.2em 1.5em;
   overflow-x: auto;
@@ -283,7 +283,7 @@ html, body {
   background-color: transparent !important;
   border: none;
   padding: 0;
-  color: #000 !important;
+  color: var(--title) !important;
   font-size: 0.95em;
   line-height: 1.6;
   font-weight: 400;
@@ -294,8 +294,8 @@ html, body {
 /* Override Prism theme colors for light theme */
 .content-body pre[class*="language-"],
 .content-body code[class*="language-"] {
-  color: #000 !important;
-  background: #d4d4d4 !important;
+  color: var(--title) !important;
+  background: var(--line) !important;
   text-shadow: none;
 }
 
@@ -309,7 +309,7 @@ html, body {
 }
 
 .token.punctuation {
-  color: #000 !important;
+  color: var(--title) !important;
 }
 
 .token.property,
@@ -336,7 +336,7 @@ html, body {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: #000 !important;
+  color: var(--title) !important;
 }
 
 .token.atrule,
@@ -363,10 +363,10 @@ html, body {
   top: 8px;
   right: 8px;
   padding: 8px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #b8b8b8;
+  background: var(--bg);
+  border: 1px solid var(--line);
   border-radius: 4px;
-  color: #333;
+  color: var(--title);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -385,8 +385,8 @@ html, body {
 }
 
 .code-copy-button:hover {
-  background: rgba(255, 255, 255, 1);
-  border-color: #4a5568;
+  background: var(--bg);
+  border-color: var(--title);
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -394,7 +394,7 @@ html, body {
 .code-copy-button svg {
   width: 18px;
   height: 18px;
-  stroke: #333;
+  stroke: var(--title);
 }
 
 /* Hide the copy text */
@@ -417,11 +417,11 @@ html, body {
 /* Syntax highlighting (Rouge/Pygments compatible) */
 .content-body .highlight {
   position: relative;
-  background-color: #d4d4d4;
+  background-color: var(--line);
   border-radius: 8px;
   margin: 1.5em 0;
   overflow-x: auto;
-  border: 2px solid #b8b8b8;
+  border: 2px solid var(--line);
   width: 100%;
   box-sizing: border-box;
   display: block;
@@ -432,28 +432,28 @@ html, body {
   margin: 0;
   border: none;
   box-shadow: none;
-  background-color: #d4d4d4 !important;
+  background-color: var(--line) !important;
   border-radius: 0;
 }
 
 /* Line numbers for code blocks */
 .content-body .highlight .lineno,
 .line-numbers .line-numbers-rows {
-  color: #888 !important;
+  color: var(--muted) !important;
   padding-right: 1em;
   user-select: none;
-  border-right: 1px solid #bbb;
+  border-right: 1px solid var(--line);
   margin-right: 1em;
 }
 
 /* Blockquotes styling */
 .content-body blockquote {
-  border-left: 4px solid #d11a2a;
+  border-left: 4px solid var(--accent-strong);
   margin: 1.5em 0;
   padding: 0.8em 1.2em;
-  background-color: #e0e0e0;
+  background-color: var(--bg);
   font-style: italic;
-  color: #555;
+  color: var(--body);
   border-radius: 0 4px 4px 0;
 }
 
@@ -471,7 +471,7 @@ html, body {
 
 /* Nested blockquotes */
 .content-body blockquote blockquote {
-  border-left-color: #999;
+  border-left-color: var(--muted);
   margin-left: 1em;
 }
 
@@ -480,31 +480,31 @@ html, body {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5em 0;
-  background-color: #e0e0e0;
+  background-color: var(--bg);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   overflow: hidden;
 }
 
 .content-body thead {
-  background-color: #e0e0e0;
-  border-bottom: 2px solid #d11a2a;
+  background-color: var(--bg);
+  border-bottom: 2px solid var(--accent-strong);
 }
 
 .content-body th {
   padding: 0.8em 1em;
   text-align: left;
   font-weight: 600;
-  color: #333;
+  color: var(--title);
 }
 
 .content-body td {
   padding: 0.8em 1em;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid var(--line);
 }
 
 .content-body tbody tr:hover {
-  background-color: #e0e0e0;
+  background-color: var(--bg);
 }
 
 .content-body tbody tr:last-child td {
@@ -532,7 +532,7 @@ html, body {
 /* Horizontal rules */
 .content-body hr {
   border: none;
-  border-top: 2px solid #e1e1e1;
+  border-top: 2px solid var(--line);
   margin: 2em 0;
   opacity: 0.6;
 }
@@ -565,11 +565,11 @@ html, body {
 
 /* Keyboard key styling */
 .content-body kbd {
-  background-color: #e0e0e0;
-  border: 1px solid #ccc;
+  background-color: var(--bg);
+  border: 1px solid var(--line);
   border-radius: 3px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-  color: #333;
+  color: var(--title);
   display: inline-block;
   font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
   font-size: 0.85em;
@@ -580,7 +580,7 @@ html, body {
 /* Strong and emphasis */
 .content-body strong {
   font-weight: 700;
-  color: #111;
+  color: var(--title);
 }
 
 .content-body em {
@@ -589,7 +589,7 @@ html, body {
 
 /* Abbreviations */
 .content-body abbr[title] {
-  border-bottom: 1px dotted #999;
+  border-bottom: 1px dotted var(--muted);
   cursor: help;
   text-decoration: none;
 }
@@ -602,13 +602,13 @@ html, body {
 .content-body dt {
   font-weight: 600;
   margin-top: 1em;
-  color: #333;
+  color: var(--title);
 }
 
 .content-body dd {
   margin-left: 2em;
   margin-bottom: 0.5em;
-  color: #555;
+  color: var(--body);
 }
 
 
@@ -658,7 +658,7 @@ html, body {
       top: 5vh;
       left: 24px;
       z-index: 1000;
-      background: #e0e0e0;
+      background: var(--bg);
       border: none;
       padding: 0;
       cursor: pointer;
@@ -681,7 +681,7 @@ html, body {
     }
 
     .back-button svg polyline {
-      stroke: #4a5568;
+      stroke: var(--title);
     }
     
     @media (max-width: 600px) {
@@ -708,7 +708,7 @@ html, body {
   bottom: 20px;
   right: 24px;
   z-index: 1000;
-  background-color: #e0e0e0;
+  background-color: var(--bg);
   border: none;
   padding: 7px 7px;
   border-radius: 50%;
@@ -728,7 +728,7 @@ html, body {
   display: None;
   width: 100%;
   height: 100%;
-  fill: rgb(209, 26, 42);
+  fill: var(--accent-strong);
   stroke-width: 2.2;
 }
 
@@ -741,7 +741,7 @@ html, body {
   top: 0;
   left: 0;
   height: 4px;           /* thickness */
-  background: red;       /* progress color */
+  background: var(--accent-strong);       /* progress color */
   width: 0%;             /* start empty */
   z-index: 9999;         /* stay above all content */
 }
@@ -753,7 +753,7 @@ html, body {
   top: 5vh;
   left: 24px;
   z-index: 1000;
-  background: #e0e0e0;
+  background: var(--bg);
   border: none;
   padding: 10px;
   cursor: pointer;
@@ -795,7 +795,7 @@ html, body {
   left: -350px;
   width: 320px;
   height: 100vh;
-  background: #f5f5f5;
+  background: var(--bg);
   z-index: 2000;
   transition: left 0.3s ease-in-out;
   box-shadow: 4px 0 16px rgba(0,0,0,0.2);
@@ -814,13 +814,13 @@ html, body {
   align-items: center;
   margin-bottom: 20px;
   padding-bottom: 15px;
-  border-bottom: 2px solid #d1d1d1;
+  border-bottom: 2px solid var(--line);
 }
 
 .toc-header h3 {
   margin: 0;
   font-size: 1.6rem;
-  color: #4a5568;
+  color: var(--title);
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
 }
@@ -829,7 +829,7 @@ html, body {
   background: none;
   border: none;
   font-size: 2rem;
-  color: #4a5568;
+  color: var(--title);
   cursor: pointer;
   line-height: 1;
   padding: 0;
@@ -841,7 +841,7 @@ html, body {
 }
 
 .toc-close:hover {
-  color: #2e5a7d;
+  color: var(--title);
 }
 
 .toc-list {
@@ -857,7 +857,7 @@ html, body {
 
 .toc-list a {
   text-decoration: none;
-  color: #333;
+  color: var(--title);
   display: block;
   padding: 8px 12px;
   border-radius: 4px;
@@ -866,13 +866,13 @@ html, body {
 }
 
 .toc-list a:hover {
-  background: #e0e0e0;
-  color: #4682b4;
+  background: var(--bg);
+  color: var(--title);
 }
 
 .toc-list a.active {
-  background: #d1d1d1;
-  color: #2e5a7d;
+  background: var(--line);
+  color: var(--title);
   font-weight: 600;
 }
 
@@ -880,7 +880,7 @@ html, body {
 .toc-list .toc-h1 > a {
   font-weight: 700;
   font-size: 1.15rem;
-  color: #4a5568;
+  color: var(--title);
 }
 
 /* H2 items */
@@ -907,7 +907,7 @@ html, body {
 .toc-h3-list a {
   font-size: 0.95rem;
   font-weight: 400;
-  color: #555;
+  color: var(--body);
   padding: 5px 10px;
 }
 
@@ -929,7 +929,7 @@ html, body {
 .comments-section {
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 2px solid #d1d1d1;
+  border-top: 2px solid var(--line);
 }
 
 /* Override Giscus white text colors to black */
@@ -937,17 +937,17 @@ html, body {
 .comments-section .gsc-comments-count,
 .comments-section .gsc-comment-author-name,
 .comments-section .gsc-comment-content {
-  color: #000 !important;
+  color: var(--title) !important;
 }
 
 /* Ensure reaction counts are black */
 .comments-section [class*="gsc-"] [class*="count"] {
-  color: #000 !important;
+  color: var(--title) !important;
 }
 
 /* Comment metadata (time, reactions) */
 .comments-section .gsc-comment-meta {
-  color: #000 !important;
+  color: var(--title) !important;
 }
 
 
