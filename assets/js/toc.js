@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Sidebar is open by default when there is room beside the article
+  // Sidebar starts closed; it opens only when the menu button is clicked
   const wide = window.matchMedia('(min-width: 1440px)');
 
   function openMenu() {
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.classList.add('toc-closed');
   }
 
-  if (!wide.matches) closeMenu();
+  closeMenu();
 
   tocButton.addEventListener('click', openMenu);
   tocClose.addEventListener('click', closeMenu);
