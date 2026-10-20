@@ -25,6 +25,8 @@ html {
 body {
   font-family: var(--sans);
   letter-spacing: -0.02em;
+  /* let the window scroll, not the body (html already clips horizontal overflow) */
+  overflow-x: visible;
 }
 
 .theme-toggle {
@@ -45,4 +47,12 @@ body {
 
 .theme-toggle:hover {
   color: var(--title);
+}
+
+.Navbar {
+  transition: transform 0.25s ease;
+}
+
+.Navbar.nav-hidden {
+  transform: translateY(-100%);
 }

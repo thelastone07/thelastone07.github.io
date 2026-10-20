@@ -1,18 +1,9 @@
 const progressBar = document.getElementById("scrollProgress");
-const content = document.getElementById("content-body");
-
-console.log("hello world")
 
 window.addEventListener("scroll", () => {
-  const totalHeight = content.scrollHeight;
-  const windowHeight = window.innerHeight;
-  const scrolled = window.scrollY;
-
-  const maxScrollable = windowHeight - (2 * totalHeight);
-  let percent = (scrolled / maxScrollable) * 100;
-
+  const maxScrollable = document.documentElement.scrollHeight - window.innerHeight;
+  let percent = maxScrollable > 0 ? (window.scrollY / maxScrollable) * 100 : 0;
 
   percent = Math.max(0, Math.min(100, percent));
-console.log(percent);
   progressBar.style.width = percent + "%";
 });

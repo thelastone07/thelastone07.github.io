@@ -21,4 +21,29 @@
 
   render();
   document.body.appendChild(button);
+
+  // Hide the navbar when scrolling down, show it again when scrolling up
+  var nav = document.querySelector('.Navbar');
+  if (nav) {
+    var lastY = window.pageYOffset;
+    var ticking = false;
+
+    function updateNav() {
+      var y = window.pageYOffset;
+      if (y < 80 || y < lastY - 4) {
+        nav.classList.remove('nav-hidden');
+      } else if (y > lastY + 4) {
+        nav.classList.add('nav-hidden');
+      }
+      lastY = y;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateNav);
+      }
+    }, { passive: true });
+  }
 })();
