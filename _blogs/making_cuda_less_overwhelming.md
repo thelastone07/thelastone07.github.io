@@ -134,7 +134,7 @@ We will be loading data from GMEM to SMEM. We need data SMEM so multiple warps c
 
 All loads from global memory went through registers (L2→L1→registers). We will keep wanting to hide latency wherever. So, whenever we are loading (K+1)th value into the SMEM, we compute any result using Kth. Somewhat of a consumer-producer loop. 
 
-1. Ampere :
+2. Ampere :
 
 Ampere introduced `cp.async` . It goes through GMEM to SMEM without touching registers.  
 
@@ -142,7 +142,7 @@ Ampere introduced `cp.async` . It goes through GMEM to SMEM without touching reg
 
 For this case, we have space for 2 chunks of data in SMEM. We fire up 2 load and store instructions. As soon as the first one arrives, we start compute. When the first chunk is computed, we free up space for a chunk and we can fire up another LD-ST instruction. This loop continues. We have replaced two separate LDG and STS instruction with just a LDGSTS. Fewer instructions, fewer overhead. Register space is also not crowded.
 
-1. Hopper:
+3. Hopper:
 
 Hopper introduced Tensor Memory Accelerator(the final piece of our puzzle). Unlike, `cp.async` , TMA doesn’t require per thread indexing and load calls. A single producer thread can handle all loads. Wow!! This reduces instruction overhead significantly. Instead of getting numerous small chunks of data (as in `cp.async` ), we load huge chunk of data, better bandwidth saturation. 
 
