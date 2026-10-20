@@ -8,6 +8,8 @@
   --accent-strong: #b01c20;
   --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --serif: Georgia, 'Times New Roman', serif;
+  /* both themes are dark: stops browsers' auto dark mode from re-darkening the page */
+  color-scheme: dark;
 }
 
 [data-theme="dark"] {
@@ -22,7 +24,9 @@ html {
   background-color: var(--bg);
 }
 
+/* html paints the background; body is transparent so there is one uniform surface */
 body {
+  background-color: transparent;
   font-family: var(--sans);
   letter-spacing: -0.02em;
   /* let the window scroll, not the body (html already clips horizontal overflow) */
