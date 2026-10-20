@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://c.webfontfree.com/c.js?f=SuisseIntl-Regular" type="text/javascript"></script>
   <link rel="stylesheet" href="/assets/css/default.css">
+  <link rel="stylesheet" href="/assets/css/listing.css">
   <link rel="icon" type="image/png" href="/assets/images/mandelbrot.webp">
-<title>Journal</title>
+<title>{{ page.title | capitalize }}</title>
 </head>
-<body>
+<body class="listing-page">
     <div class="page-wrapper">
       <header class="Navbar">
         <div id = "Navbar-left">
@@ -21,122 +22,40 @@
         </div>
       </header>
 
-      <div class="hero-section" id="hero">
-        {% if page.path == "journal.md" %}
-          <div class="hero-image hero-image-journal"></div>
+      {% if page.path == "journal.md" %}
+        {% assign posts = site.journals | sort: 'date' | reverse %}
+        {% assign hero_class = "listing-hero-journal" %}
+        {% assign heading = "JOURNAL" %}
+        {% assign tagline = "Perspective on things around me" %}
+      {% else %}
+        {% assign posts = site.blogs | sort: 'date' | reverse %}
+        {% assign hero_class = "listing-hero-blogs" %}
+        {% assign heading = "BLOGS" %}
+        {% assign tagline = "Writing down what I learn" %}
+      {% endif %}
+
+      <div class="listing-hero {{ hero_class }}">
+        <h1 class="listing-title">{{ heading }}</h1>
+      </div>
+
+      <p class="listing-description">{{ tagline }}</p>
+
+      <ul class="listing-posts">
+        {% for post in posts %}
+          {% assign words = post.content | number_of_words %}
+          {% assign read_time = words | divided_by: 200 %}
+          {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
+          <li>
+            <a href="{{ post.url }}" class="listing-row">
+              <span class="listing-row-title">{{ post.title }}</span>
+              <span class="listing-row-meta">{{ post.date | date: "%-d %b, %Y" }} &nbsp;•&nbsp; {{ read_time }} min read</span>
+            </a>
+          </li>
         {% else %}
-          <div class="hero-image hero-image-blogs"></div>
-        {% endif %}
-
-        <div class="page-title-container">
-          {% if page.path == "journal.md" %}
-            <h1 class="page-title">JOURNAL</h1>
-          {% else %}
-            <h1 class="page-title">BLOGS</h1>
-          {% endif %}
-        </div>
-      </div>
-
-      <div class="page-description-container">
-        {% if page.path == "journal.md" %}
-          <p class="page-description">Perspective on things around me</p>
-        {% else %}
-          <p class="page-description">Writing down what I learn</p>
-        {% endif %}
-      </div>
-
-      <div class="featured-posts">
-        {% if page.path == "journal.md" %}
-          {% assign featured = site.journals | sort : 'date' | reverse | limit: 3 %}
-        {% else %}
-          {% assign featured = site.blogs | sort : 'date' | reverse | limit: 3 %}
-        {% endif %}
-
-        <div class="featured-large">
-          {% assign post = featured[0] %}
-          {% if post %}
-          {% if post.slug %}
-            {% capture image_path %}/assets/{{ post.slug }}/background.jpg{% endcapture %}
-          {% else %}
-            {% capture post_filename %}{{ post.path | split: '/' | last | replace: '.md', '' }}{% endcapture %}
-            {% capture image_path %}/assets/{{ post_filename }}/background.jpg{% endcapture %}
-          {% endif %}
-          <a href="{{ post.url }}" class="featured-link">
-            <div class="featured-image-container">
-              <img src="{{ image_path | relative_url }}" alt="{{ post.title }}" class="featured-image" onerror="console.log('Failed to load: {{ image_path }}')">
-            </div>
-            <div class="featured-content">
-              <h3 class="featured-title">{{ post.title }}</h3>
-              <div class="featured-meta">
-                <span class="featured-date">{{ post.date | date: "%-d %b, %Y" }}</span>
-                <span class="featured-divider">•</span>
-                {% assign words = post.content | number_of_words %}
-                {% assign read_time = words | divided_by: 200 %}
-                {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
-                <span class="featured-read">{{ read_time }} min read</span>
-              </div>
-            </div>
-          </a>
-          {% endif %}
-        </div>
-
-        <div class="featured-small-container">
-          {% for i in (1..2) %}
-            {% assign post = featured[i] %}
-            {% if post %}
-            {% if post.slug %}
-              {% capture image_path %}/assets/{{ post.slug }}/background.jpg{% endcapture %}
-            {% else %}
-              {% capture post_filename %}{{ post.path | split: '/' | last | replace: '.md', '' }}{% endcapture %}
-              {% capture image_path %}/assets/{{ post_filename }}/background.jpg{% endcapture %}
-            {% endif %}
-            <div class="featured-small">
-              <a href="{{ post.url }}" class="featured-link">
-                <div class="featured-image-container">
-                  <img src="{{ image_path | relative_url }}" alt="{{ post.title }}" class="featured-image" onerror="console.log('Failed to load: {{ image_path }}')">
-                </div>
-                <div class="featured-content">
-                  <h3 class="featured-title">{{ post.title }}</h3>
-                  <div class="featured-meta">
-                    <span class="featured-date">{{ post.date | date: "%-d %b, %Y" }}</span>
-                    <span class="featured-divider">•</span>
-                    {% assign words = post.content | number_of_words %}
-                    {% assign read_time = words | divided_by: 200 %}
-                    {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
-                    <span class="featured-read">{{ read_time }} min read</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-
-      <div class="see-all-container">
-        <a href="/archive" class="see-all-link">see all posts →</a>
-      </div>
-
-</div>
-        <script src="/assets/js/hover_script.js"></script>
-        <script>
-          // Hide hero section on scroll
-          let lastScroll = 0;
-          const hero = document.getElementById('hero');
-
-          window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll > 100) {
-              hero.classList.add('hidden');
-            } else {
-              hero.classList.remove('hidden');
-            }
-
-            lastScroll = currentScroll;
-          });
-        </script>
-
+          <li class="listing-empty">Nothing here yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <script src="/assets/js/hover_script.js"></script>
 </body>
 </html>
-
