@@ -114,6 +114,25 @@ a:hover {
   border-bottom: 1px solid var(--line);
 }
 
+.me-pin {
+  display: inline-block;
+  vertical-align: -2px;
+  margin-left: 10px;
+  color: var(--accent);
+  transform: rotate(35deg);
+}
+
+.me-link {
+  display: inline-block;
+  vertical-align: -2px;
+  margin-left: 10px;
+  color: var(--muted);
+}
+
+.me-link:hover {
+  color: var(--title);
+}
+
 .me-project-info {
   display: flex;
   flex-direction: column;
