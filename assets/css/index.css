@@ -35,13 +35,13 @@ html, body {
 
 #Navbar-home, #Navbar-photos, #Navbar-blogs, #Navbar-diary {
     color: var(--body);
-    font-size: 1.3rem;
-    font-family: 'Suisseintl Webxl', Arial, sans-serif; 
+    font-size: 24px;
+    font-family: var(--sans); 
     cursor: pointer;
     transition: color 0.2s;
     padding: 8px 10px;
     border-radius: 4px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: -0.08rem;
 }
 
@@ -106,7 +106,7 @@ html, body {
     flex-direction: column;
     align-items : start;
     justify-content: start;
-    font-family:  'Suisseintl Webxl', Arial, sans-serif;
+    font-family: var(--sans);
     margin-top : 20vh;
     padding : 5vh;
     filter: blur(1.6px);
@@ -233,7 +233,7 @@ html, body {
 }
 
 .quote-1 {
-    font-family: 'Suisseintl Webxl', Arial, sans-serif; 
+    font-family: var(--sans); 
     font-size : 0.6rem;
     color : var(--accent-strong);
     font-weight: 600;
@@ -261,7 +261,7 @@ html, body {
     left : 10vh;
     width : fit-content;
     height: fit-content;
-    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-family: var(--sans);
     color : color-mix(in srgb, var(--accent-strong) 89%, transparent);
     --span-size-large : 4.4rem;
     --span-size-small : 2.2rem;
@@ -479,7 +479,7 @@ html, body {
     height: auto;
     background: transparent;
     z-index: 2;
-    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-family: var(--sans);
     color: color-mix(in srgb, var(--accent-strong) 88%, transparent);
     font-weight: 700;
     letter-spacing: -2.8rem;
@@ -520,7 +520,7 @@ html, body {
     background-color: transparent;
     z-index : 2;
     color : color-mix(in srgb, var(--accent-strong) 88%, transparent);
-    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-family: var(--sans);
     font-size : 20vw;
     font-weight: 700;
     height: 5vh;
@@ -545,7 +545,7 @@ html, body {
     background-color: transparent;
     z-index : 2;
     color : color-mix(in srgb, var(--accent-strong) 88%, transparent);
-    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-family: var(--sans);
     font-size : 8vw;
     font-weight: 700;
     height: 5vh;
@@ -569,7 +569,7 @@ html, body {
     right: 8vw;
     background-color: transparent;
     color: color-mix(in srgb, var(--accent-strong) 88%, transparent);
-    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-family: var(--sans);
     font-size: 1.2vw;
     font-weight: 700;
     letter-spacing: -0.1vw;
@@ -590,7 +590,7 @@ Foreground 6 ends here */
     right : 10vw;
     background-color: transparent;
     color: color-mix(in srgb, var(--accent-strong) 88%, transparent);
-    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-family: var(--sans);
     font-size: 1.3vw;
     font-weight: 700;
     letter-spacing: -0.1vw;
@@ -629,7 +629,7 @@ Foreground 6 ends here */
 
  .face-text2, .face-text3 , .face-text4, .face-text5 {
     position : absolute;
-    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-family: var(--sans);
     color: color-mix(in srgb, var(--accent-strong) 51%, transparent);
 }
 .face-text2 {
@@ -674,7 +674,7 @@ Foreground 6 ends here */
     font-size : 2vw;
     width : 100%;
     text-align: right;
-    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-family: var(--sans);
     color: color-mix(in srgb, var(--accent-strong) 81%, transparent);
     font-weight: 600;
     letter-spacing: -0.1vw;
@@ -686,7 +686,7 @@ Foreground 6 ends here */
   /* intro starts here */
   .intro-black {
     color: var(--muted);
-    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-family: var(--sans);
     font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.8rem); 
     font-weight: 700;
     letter-spacing: clamp(-0.1rem, -0.1vw - 0.05rem, -0.05rem); 
@@ -695,7 +695,7 @@ Foreground 6 ends here */
 .intro {
     background-color: transparent;
     color : color-mix(in srgb, var(--accent-strong) 88%, transparent);
-    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-family: var(--sans);
     font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.8rem); 
     font-weight: 700;
     letter-spacing: clamp(-0.1rem, -0.1vw - 0.05rem, -0.05rem);  
@@ -715,7 +715,7 @@ Foreground 6 ends here */
     margin-bottom : 5vh;
     height: fit-content;
     background-color: transparent;
-    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-family: var(--sans);
     display: flex;
     justify-content : space-between
   }
@@ -771,11 +771,11 @@ Foreground 6 ends here */
   }
   .link {
     color: var(--body);
-    font-family: 'Suisseintl Webxl', Arial, sans-serif; 
+    font-family: var(--sans); 
     cursor: pointer;
     transition: color 0.2s;
-    font-size: clamp(1rem, 1.2vw + 0.3rem, 1.5rem); 
-    font-weight: 700;
+    font-size: 28px; 
+    font-weight: 600;
     letter-spacing: clamp(-0.07rem, -0.07vw - 0.02rem, -0.03rem);
     padding-right : 10px;
   }

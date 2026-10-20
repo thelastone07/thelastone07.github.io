@@ -47,7 +47,7 @@ body {
 #Navbar-home, #Navbar-photos, #Navbar-blogs, #Navbar-diary {
     color: var(--body);
     font-size: 1.3rem;
-    font-family: 'Suisseintl Webxl', Arial, sans-serif; 
+    font-family: var(--sans); 
     cursor: pointer;
     transition: color 0.2s;
     padding: 8px 10px;
@@ -114,7 +114,7 @@ body {
     margin-bottom : 5vh;
     height: fit-content;
     background-color: transparent;
-    font-family: 'Suisseintl Webxl', Arial, sans-serif;
+    font-family: var(--sans);
     display: flex;
     justify-content : space-between
   }
@@ -170,7 +170,7 @@ body {
   }
   .link {
     color: var(--body);
-    font-family: 'Suisseintl Webxl', Arial, sans-serif; 
+    font-family: var(--sans); 
     cursor: pointer;
     transition: color 0.2s;
     font-size: clamp(1rem, 1.2vw + 0.3rem, 1.5rem); 
@@ -281,7 +281,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Suisseintl Webxl', Arial, sans-serif;
+  font-family: var(--sans);
   font-size: 1.1em;
   letter-spacing: -.1em;
   font-weight: 600;
@@ -433,7 +433,7 @@ body {
   width : 100%;
   height : fit-content;
   font-size : 1.1rem;
-  font-family: 'Suisseintl Webxl', Arial, sans-serif;
+  font-family: var(--sans);
   font-weight: 600;
   letter-spacing: -.08em;
   color: var(--muted);

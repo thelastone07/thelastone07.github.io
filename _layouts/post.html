@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://c.webfontfree.com/c.js?f=SuisseIntl-Regular" type="text/javascript"></script>
 <title>Journal</title>
   <link rel="stylesheet" href="/assets/css/post.css" />
   <link rel="icon" type="image/png" href="/assets/images/mandelbrot.webp">
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Prism.js for syntax highlighting -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
@@ -46,7 +43,7 @@
       </header> 
 
       <!-- Hamburger Menu Button -->
-      <button class="toc-button" id="tocButton" aria-label="Table of Contents">
+      <button class="toc-button" id="tocButton" aria-label="Open contents">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -57,14 +54,13 @@
       <!-- Table of Contents Menu -->
       <nav class="toc-menu" id="tocMenu">
         <div class="toc-header">
-          <h3>Table of Contents</h3>
-          <button class="toc-close" id="tocClose">&times;</button>
+          <h3>Contents</h3>
+          <button class="toc-close" id="tocClose" aria-label="Close contents">&times;</button>
         </div>
         <ul class="toc-list" id="tocList">
           <!-- Will be populated by JavaScript -->
         </ul>
       </nav>
-      <div class="toc-overlay" id="tocOverlay"></div>
       
       <div class="content-wrapper">
         <div class="content-header">

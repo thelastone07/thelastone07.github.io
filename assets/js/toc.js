@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const tocButton = document.getElementById('tocButton');
   const tocMenu = document.getElementById('tocMenu');
   const tocClose = document.getElementById('tocClose');
-  const tocOverlay = document.getElementById('tocOverlay');
   const tocList = document.getElementById('tocList');
   const contentBody = document.getElementById('content-body');
 
@@ -82,28 +81,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Open menu
+  // Sidebar is open by default when there is room beside the article
+  const wide = window.matchMedia('(min-width: 1440px)');
+
   function openMenu() {
-    tocMenu.classList.add('active');
-    tocOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    document.body.classList.remove('toc-closed');
   }
 
-  // Close menu
   function closeMenu() {
-    tocMenu.classList.remove('active');
-    tocOverlay.classList.remove('active');
-    document.body.style.overflow = '';
+    document.body.classList.add('toc-closed');
   }
 
-  // Event listeners
+  if (!wide.matches) closeMenu();
+
   tocButton.addEventListener('click', openMenu);
   tocClose.addEventListener('click', closeMenu);
-  tocOverlay.addEventListener('click', closeMenu);
 
-  // Close menu when clicking a link
+  // On narrow screens the sidebar overlays the article, so close it after picking a link
   tocList.addEventListener('click', function(e) {
-    if (e.target.tagName === 'A') {
+    if (e.target.tagName === 'A' && !wide.matches) {
       closeMenu();
     }
   });
@@ -119,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let activeHeading = null;
 
     headings.forEach(heading => {
-      const headingTop = heading.offsetTop;
+      const headingTop = heading.getBoundingClientRect().top + window.scrollY;
       if (scrollPosition >= headingTop) {
         activeHeading = heading;
       }

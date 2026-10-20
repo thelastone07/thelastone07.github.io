@@ -11,7 +11,7 @@ html:has(body.listing-page) {
 
 .listing-page .page-wrapper {
   background: var(--bg);
-  font-family: 'Suisseintl Webxl', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--sans);
   letter-spacing: -0.02em;
 }
 
@@ -63,7 +63,6 @@ html:has(body.listing-page) {
   line-height: 1;
   font-weight: 800;
   color: var(--accent);
-  letter-spacing: -0.03em;
 }
 
 .listing-description {
