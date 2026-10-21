@@ -156,7 +156,7 @@ The single metric we have been following is keeping the GPU busy. We had also de
 
 ![image.png](/assets/making_cuda_less_overwhelming/image-13.png)
 
-But what if we just transpose the data of B when storing into B? Tensor core has some weird requirement to read the data column-wise. If we do so, we stand to incur tons of bank conflict. That’s a no-no. Swizzle comes to the rescue. Luckily for us, TMA swizzles the data while loading from GMEM to SMEM. 
+Just loading the data into SMEM isn’t enough. Tensor Core needs a chunk of data from A_SMEM and B_SMEM. This would cause bank conflicts on every stride. A simple solution — swizzle, displacing same column elements. Luckily for us, TMA swizzles the data while loading from GMEM.  
 
 #### Constraints due to hardware till now
 
@@ -505,6 +505,10 @@ This new kernel should be easier to read if you got the hang of the first. A tri
 
 One fun thing I learnt from looking at both of these codes is global addresses are 64-bit but shared memory addresses are just 32-bit.
 
+## Conclusion
+
+This blog in no means is an exhaustive resource. I aimed to provide you a straightforward overview of how things work in GPU land and I feel I have covered it well. This was meant to be a starter reading material, covering mental models, thinking patterns and rules. Next step would be to read further into surrounding topics. Hope it was helpful and thank you for reading. Have fun ahead!
+
 ## Notes
 
 <span id="fn-1">[1]</span> Chip manufacturing produces a very non-deterministic defects across the fabric. Instead of discarding the entire component, they are sold as older version or as an inferior variant. Interestingly, sometimes some components are purposely turned off to meet the advertised number. Both the variants have different number of total SMs, i.e., some GPC has fewer than 9 TPCs.  <a href="#fnref-1">↩</a>
@@ -533,3 +537,5 @@ One fun thing I learnt from looking at both of these codes is global addresses a
 - [Aleksa Gordić — Inside NVIDIA GPUs: anatomy of a high performance matmul kernel](https://www.aleksagordic.com/blog/matmul)
 - [Outperforming cuBLAS on H100: a Worklog](https://cudaforfun.substack.com/p/outperforming-cublas-on-h100-a-worklog)
 - [All About Transformer Inference — How To Scale Your Model](https://jax-ml.github.io/scaling-book/inference/)
+- [Making sense of acquire-release semantics](https://davekilian.com/acquire-release.html)
+- [tcgen05 for dummies](https://gau-nernst.github.io/tcgen05/)
