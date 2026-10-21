@@ -8,6 +8,8 @@ excerpt : 'Understanding the H100 hardware, memory and compiler first, so writin
 
 I remember the first time I started coding in Java when I was around 12 or 13. Writing loops to create asterisk patterns felt so meaningful and beautiful. But, since last year when I tried to build my own [product](http://tryvirgil.org), creating software across 4 different languages seemed somewhat abstract and unrewarding because Claude always seemed to have a better solution. Because of this product, I had to learn about inference systems and hence, CUDA. I am glad that I did. CUDA feels writing those loops to draw patterns once again. It was a long confusing journey to learn what I know and I want it to be more straightforward for you.
 
+![cover](/assets/making_cuda_less_overwhelming/image-cover.png)
+
 ### The approach
 
 The best way to understand and go about writing CUDA kernels would be to understand the hardware, look at how the compiler instructions work and connect them both. Programming model comes easy after that.
