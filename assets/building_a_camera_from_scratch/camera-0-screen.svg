@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<defs><filter id="w" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4"/></filter></defs>
+<rect width="1600" height="900" fill="#fff"/>
+<g filter="url(#w)" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M200 700 L200 511.0"/><path d="M186 700 L214 700"/><path d="M130 511.0 C100 448.0 120 364.0 160 372.4 C170 280.0 230 280.0 240 372.4 C285 364.0 300 448.0 270 511.0 Z"/>
+<path d="M60 700 L1480 700" stroke-width="2"/>
+<path d="M900 280 L900 720" stroke="#f07a1a" stroke-width="7"/>
+<path d="M270 310 L880 310 M862 298 L882 310 L862 322" stroke="#f07a1a" stroke-width="2.5"/>
+<path d="M270 400 L880 400 M862 388 L882 400 L862 412" stroke="#f07a1a" stroke-width="2.5"/>
+<path d="M270 480 L880 480 M862 468 L882 480 L862 492" stroke="#f07a1a" stroke-width="2.5"/>
+<path d="M270 580 L880 580 M862 568 L882 580 L862 592" stroke="#f07a1a" stroke-width="2.5"/>
+<path d="M270 660 L880 660 M862 648 L882 660 L862 672" stroke="#f07a1a" stroke-width="2.5"/>
+<path d="M80 280 L80 700 M72 280 L88 280 M72 700 L88 700" stroke="#2f6fdb" stroke-width="2"/>
+<text x="45" y="500" fill="#2f6fdb" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 45 500)">h</text>
+<path d="M960 280 L960 700 M952 280 L968 280 M952 700 L968 700" stroke="#2f6fdb" stroke-width="2"/>
+<text x="1000" y="500" fill="#2f6fdb" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 1000 500)">h</text>
+<g transform="translate(1100 520) scale(1.0)">
+<path d="M10,40 C5,10 35,-5 55,2 C85,8 95,40 92,75 C90,110 80,128 50,130 C20,132 8,110 10,40 Z" fill="#111"/>
+<path d="M36,130 L33,168 M64,131 L66,168 M33,168 l-8,2 M66,168 l8,2" stroke-width="4"/>
+<circle cx="36" cy="46" r="7" fill="#fff" stroke="none"/><circle cx="63" cy="46" r="7" fill="#fff" stroke="none"/>
+<circle cx="37" cy="47" r="2.5" fill="#111" stroke="none"/><circle cx="62" cy="47" r="2.5" fill="#111" stroke="none"/>
+<path d="M12,70 C-30,50 -60,40 -100,30" stroke="#111" stroke-width="4"/></g>
+<text x="1330" y="430" fill="#e5321e" stroke="none" font-size="34" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(3 1330 430)">screen as big</text>
+<text x="1330" y="475" fill="#e5321e" stroke="none" font-size="34" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(3 1330 475)">as the scene</text>
+<text x="900" y="250" fill="#2f6fdb" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 900 250)">chemicals + magic</text>
+<text x="200" y="770" fill="#111" stroke="none" font-size="34" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 200 770)">scene</text>
+</g></svg>

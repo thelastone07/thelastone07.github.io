@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<defs><filter id="w" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4"/></filter></defs>
+<rect width="1600" height="900" fill="#fff"/>
+<g filter="url(#w)" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M190 650 L190 510.5"/><path d="M176 650 L204 650"/><path d="M120 510.5 C90 464.0 110 402.0 150 408.2 C160 340.0 220 340.0 230 408.2 C275 402.0 290 464.0 260 510.5 Z"/>
+<path d="M60 650 L1480 650" stroke-width="2"/>
+<path d="M700 490 L700 330 L1100 330 L1100 650 L700 650 L700 510"/>
+<path d="M1100 338 L1100 642" stroke="#f07a1a" stroke-width="7"/>
+<path d="M210 340 L1100 625" stroke="#f07a1a" stroke-width="2.5" stroke-dasharray="1 0"/>
+<path d="M210 650 L1100 382" stroke="#f07a1a" stroke-width="2.5" stroke-dasharray="1 0"/>
+<path d="M1060 390 L1060 505.0" stroke-width="2" stroke-dasharray="4 5"/><path d="M1036 505.0 C1030 612 1090 612 1084 505.0 Z" stroke-width="2" stroke-dasharray="4 5"/>
+<g transform="translate(1300 478) scale(1.0)">
+<path d="M10,40 C5,10 35,-5 55,2 C85,8 95,40 92,75 C90,110 80,128 50,130 C20,132 8,110 10,40 Z" fill="#111"/>
+<path d="M36,130 L33,168 M64,131 L66,168 M33,168 l-8,2 M66,168 l8,2" stroke-width="4"/>
+<circle cx="36" cy="46" r="7" fill="#fff" stroke="none"/><circle cx="63" cy="46" r="7" fill="#fff" stroke="none"/>
+<circle cx="37" cy="47" r="2.5" fill="#111" stroke="none"/><circle cx="62" cy="47" r="2.5" fill="#111" stroke="none"/>
+<path d="M12,70 C-20,60 -40,30 -48,20" stroke="#111" stroke-width="4"/></g>
+<path d="M80 340 L80 650 M72 340 L88 340 M72 650 L88 650" stroke="#2f6fdb" stroke-width="2"/>
+<text x="45" y="505" fill="#2f6fdb" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 45 505)">h1</text>
+<path d="M1160 382 L1160 625 M1152 382 L1168 382 M1152 625 L1168 625" stroke="#2f6fdb" stroke-width="2"/>
+<text x="1200" y="513" fill="#2f6fdb" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 1200 513)">h2</text>
+<path d="M190 700 L700 700 M190 692 L190 708 M700 692 L700 708" stroke="#2f6fdb" stroke-width="2"/>
+<text x="445" y="740" fill="#2f6fdb" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 445 740)">d1</text>
+<path d="M700 700 L1100 700 M700 692 L700 708 M1100 692 L1100 708" stroke="#2f6fdb" stroke-width="2"/>
+<text x="900" y="740" fill="#2f6fdb" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 900 740)">d2</text>
+<text x="190" y="790" fill="#111" stroke="none" font-size="34" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 190 790)">scene</text>
+<text x="705" y="300" fill="#111" stroke="none" font-size="34" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(-2 705 300)">pinhole</text>
+<text x="860" y="230" fill="#2f6fdb" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 860 230)">h1 = h2 / d2 x d1</text>
+<text x="1335" y="440" fill="#e5321e" stroke="none" font-size="34" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(3 1335 440)">upside down</text>
+<text x="1060" y="790" fill="#2f6fdb" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 1060 790)">blurry, dim</text>
+<path d="M745 305 L706 478" stroke="#e5321e" stroke-width="2" stroke-dasharray="6 6"/>
+</g></svg>

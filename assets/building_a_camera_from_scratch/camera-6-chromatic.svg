@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<defs><filter id="w" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4"/></filter></defs>
+<rect width="1600" height="900" fill="#fff"/>
+<g filter="url(#w)" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M700 350 C650 420 650 480 700 550 C750 480 750 420 700 350 Z"/><path d="M730 360 C750 420 750 480 730 540 C700 480 700 420 730 360 Z" stroke="#111" stroke-dasharray="8 7"/><path d="M150 390 L700 390 L960 450 L1150 510" stroke="#2f6fdb" stroke-width="2.5"/><path d="M150 384 L700 384 L1130 450 L1300 516" stroke="#e5321e" stroke-width="2.5"/><path d="M150 510 L700 510 L960 450 L1150 390" stroke="#2f6fdb" stroke-width="2.5"/><path d="M150 504 L700 504 L1130 450 L1300 396" stroke="#e5321e" stroke-width="2.5"/><path d="M1130 300 L1130 600" stroke-width="5"/><circle cx="960" cy="450" r="8" stroke="#2f6fdb" stroke-width="3"/><circle cx="1130" cy="450" r="8" stroke="#e5321e" stroke-width="3"/><g transform="translate(560 640) scale(0.9)">
+<path d="M10,40 C5,10 35,-5 55,2 C85,8 95,40 92,75 C90,110 80,128 50,130 C20,132 8,110 10,40 Z" fill="#111"/>
+<path d="M36,130 L33,168 M64,131 L66,168 M33,168 l-8,2 M66,168 l8,2" stroke-width="4"/>
+<circle cx="36" cy="46" r="7" fill="#fff" stroke="none"/><circle cx="63" cy="46" r="7" fill="#fff" stroke="none"/>
+<circle cx="37" cy="47" r="2.5" fill="#111" stroke="none"/><circle cx="62" cy="47" r="2.5" fill="#111" stroke="none"/>
+<path d="M92,70 C130,40 150,10 175,-60" stroke="#111" stroke-width="4"/><path d="M165,-72 l18,-6 l8,16 l-18,6 Z" fill="#111"/></g>
+<text x="960" y="330" fill="#2f6fdb" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 960 330)">blue focuses early</text>
+<text x="1250" y="700" fill="#e5321e" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 1250 700)">red focuses late</text>
+<text x="1020" y="800" fill="#111" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 1020 800)">glue on a diverging lens to line them up</text>
+<text x="450" y="320" fill="#111" stroke="none" font-size="28" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 450 320)">converging, low dispersion</text>
+</g></svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<defs><filter id="w" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4"/></filter></defs>
+<rect width="1600" height="900" fill="#fff"/>
+<g filter="url(#w)" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M60 760 L1480 760" stroke-width="2"/>
+<path d="M700 460 L700 330 L1100 330 L1100 760 L700 760 L700 540"/>
+<path d="M1100 338 L1100 752" stroke="#f07a1a" stroke-width="7"/>
+<circle cx="200" cy="430" r="10" fill="#111"/><path d="M180 410 l-14 -14 M220 410 l14 -14 M180 450 l-14 14 M220 450 l14 14" stroke-width="2.5"/>
+<path d="M212 432 L700 460 L1100 484" stroke="#f07a1a" stroke-width="2.5"/>
+<path d="M212 432 L700 500 L1100 529" stroke="#f07a1a" stroke-width="2.5"/>
+<path d="M212 432 L700 540 L1100 628" stroke="#f07a1a" stroke-width="2.5"/>
+<path d="M1100 484 L1100 628" stroke="#e5321e" stroke-width="9"/>
+<path d="M672 460 L672 540 M664 460 L680 460 M664 540 L680 540" stroke="#e5321e" stroke-width="2.5"/>
+<text x="640" y="510" fill="#e5321e" stroke="none" font-size="36" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 640 510)">D</text>
+<g transform="translate(850 162) scale(1.0)">
+<path d="M10,40 C5,10 35,-5 55,2 C85,8 95,40 92,75 C90,110 80,128 50,130 C20,132 8,110 10,40 Z" fill="#111"/>
+<path d="M36,130 L33,168 M64,131 L66,168 M33,168 l-8,2 M66,168 l8,2" stroke-width="4"/>
+<circle cx="36" cy="46" r="7" fill="#fff" stroke="none"/><circle cx="63" cy="46" r="7" fill="#fff" stroke="none"/>
+<circle cx="37" cy="47" r="2.5" fill="#111" stroke="none"/><circle cx="62" cy="47" r="2.5" fill="#111" stroke="none"/>
+<path d="M12,70 C-30,90 -70,150 -100,230" stroke="#111" stroke-width="4"/></g>
+<text x="1320" y="560" fill="#e5321e" stroke="none" font-size="34" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(3 1320 560)">one point</text>
+<text x="1320" y="605" fill="#e5321e" stroke="none" font-size="34" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(3 1320 605)">becomes a smear</text>
+<text x="900" y="850" fill="#2f6fdb" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 900 850)">geometric blur</text>
+<text x="200" y="510" fill="#111" stroke="none" font-size="30" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 200 510)">a point of the scene</text>
+</g></svg>

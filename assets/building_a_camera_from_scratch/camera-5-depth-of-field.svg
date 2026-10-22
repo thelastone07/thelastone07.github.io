@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<defs><filter id="w" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4"/></filter></defs>
+<rect width="1600" height="900" fill="#fff"/>
+<g filter="url(#w)" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<g transform="translate(60 0)"><path d="M300 380 C270 430 270 470 300 520 C330 470 330 430 300 380 Z"/><path d="M300 300 L300 324 M300 576 L300 600" stroke-width="8"/><path d="M80 450 L300 330 L470 450 L600 541" stroke="#f07a1a" stroke-width="2.5"/><path d="M80 450 L300 570 L470 450 L600 359" stroke="#f07a1a" stroke-width="2.5"/><path d="M600 300 L600 600" stroke-width="5"/><path d="M600 359 L600 541" stroke="#e5321e" stroke-width="10"/><circle cx="80" cy="450" r="9" fill="#111"/><circle cx="470" cy="450" r="5" stroke="#f07a1a"/></g><text x="480" y="700" fill="#e5321e" stroke="none" font-size="34" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 480 700)">big D: shallow depth, quick blur</text>
+<g transform="translate(820 0)"><path d="M300 380 C270 430 270 470 300 520 C330 470 330 430 300 380 Z"/><path d="M300 300 L300 409 M300 491 L300 600" stroke-width="8"/><path d="M80 450 L300 415 L470 450 L600 476" stroke="#f07a1a" stroke-width="2.5"/><path d="M80 450 L300 485 L470 450 L600 424" stroke="#f07a1a" stroke-width="2.5"/><path d="M600 300 L600 600" stroke-width="5"/><path d="M600 424 L600 476" stroke="#2f6fdb" stroke-width="10"/><circle cx="80" cy="450" r="9" fill="#111"/><circle cx="470" cy="450" r="5" stroke="#f07a1a"/></g><text x="1240" y="700" fill="#2f6fdb" stroke="none" font-size="34" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 1240 700)">small D: deep depth, slow blur</text>
+<text x="800" y="150" fill="#111" stroke="none" font-size="32" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 800 150)">far point, focused in front of the screen</text>
+<g transform="translate(800 720) scale(0.8)">
+<path d="M10,40 C5,10 35,-5 55,2 C85,8 95,40 92,75 C90,110 80,128 50,130 C20,132 8,110 10,40 Z" fill="#111"/>
+<path d="M36,130 L33,168 M64,131 L66,168 M33,168 l-8,2 M66,168 l8,2" stroke-width="4"/>
+<circle cx="36" cy="46" r="7" fill="#fff" stroke="none"/><circle cx="63" cy="46" r="7" fill="#fff" stroke="none"/>
+<circle cx="37" cy="47" r="2.5" fill="#111" stroke="none"/><circle cx="62" cy="47" r="2.5" fill="#111" stroke="none"/>
+<path d="M26,46 l20,0 M52,46 l20,0" stroke="#111" stroke-width="3"/></g>
+<text x="860" y="880" fill="#2f6fdb" stroke="none" font-size="30" font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle" transform="rotate(0 860 880)">squint = smaller D</text>
+</g></svg>
