@@ -92,15 +92,15 @@ We never explicitly declare the number of blocks to be run concurrently in a SM.
 
 We have covered various part of SM till now in the GPU architecture. We have intentionally left out the ones which deal with storing of memory. 
 
-- VRAM. If you look at a GPU architecture spec, this is the one which is usually advertised. We have 80GB of memory with latency of ~500 cycles. That’s a whole lot of cycles. The higher latency is due to the fact that this memory lives on a separate die than the entire GPU. This is a DRAM type memory<sup id="fnref-6"><a href="#fn-6">[6]</a></sup>. Apart from 80GB space, it has a 64Kb space for constants (hyperparameters or universal constants) and 256Kb/thread local space (the nomenclature is misleading; nothing local about this). The local space is used to stored spilled data from threads.
-- L2 Cache. The largest cache, accessible by all SMs. Look at the GPU architecture diagram. You can see there are 2 partitions of the L2 cache. This is done to ensure equal distance of cache between the cache and the SM. This has 50Mb of storage with latency of ~300 cycles. On chip memories are of SRAM-type<sup><a href="#fn-6">[6]</a></sup>.
-- SMEM (Shared Memory) and L1 cache. Every SM has combined 256Kb of storage for L1 and SMEM having latency of around 20 cycles. The more you assign to SMEM, the less is left with L1. Maximum allowed for SMEM is documented as 228Kb. 1Kb per block is reserved for some system purposes.
+- VRAM. If you look at a GPU architecture spec, this is the one which is usually advertised. We have 80GB of memory with latency of ~500 cycles. That’s a whole lot of cycles. The higher latency is due to the fact that this memory lives on a separate die than the entire GPU. This is a DRAM type memory<sup id="fnref-6"><a href="#fn-6">[6]</a></sup>. Apart from 80GB space, it has a 64KB space for constants (hyperparameters or universal constants) and 256KB/thread local space (the nomenclature is misleading; nothing local about this). The local space is used to stored spilled data from threads.
+- L2 Cache. The largest cache, accessible by all SMs. Look at the GPU architecture diagram. You can see there are 2 partitions of the L2 cache. This is done to ensure equal distance of cache between the cache and the SM. This has 50MB of storage with latency of ~300 cycles. On chip memories are of SRAM-type<sup><a href="#fn-6">[6]</a></sup>.
+- SMEM (Shared Memory) and L1 cache. Every SM has combined 256KB of storage for L1 and SMEM having latency of around 20 cycles. The more you assign to SMEM, the less is left with L1. Maximum allowed for SMEM is documented as 228KB. 1KB per block is reserved for some system purposes.
 - DSMEM. Distributed Shared Memory. All the SMs can share their SMEMs. This isn’t a separate memory. This just makes the SMEM of other SMs accessible.
-- Register space. 256Kb per SM with just 1 cycle latency. Going from 500 cycle latency to just 1 cycle is insane.
+- Register space. 256KB per SM with just 1 cycle latency. Going from 500 cycle latency to just 1 cycle is insane.
 
 So what are the roles of caches, SMEM, VRAM? Let’s follow our previous vector addition example. A and B are initially stored in VRAM. The `ld.global` instructions are used to load these from VRAM or global memory (GMEM) to our register space. The `ld.global` instruction takes 500 cycles of latency. That is unacceptable if we were to do multiple load operations of the same address. Surely, there must be some optimizations. L1 and L2 caches are implicit cache storage that reads the data from GMEM before transferring to register. What if we can’t trust L1/L2 cache or need faster cached value that any thread in our block may need? SMEM. Registers are private to each thread, so they can’t be used here. SMEM on the other hand, allows all threads in a block to access the same storage space.
 
-Another functionality of the caches and “local memory” of VRAM is storing spillage from the threads. Sometimes the 256Kb per thread isn’t enough and we end up using more registers than we have. This doesn’t result in some kind of latency 
+Another functionality of the caches and “local memory” of VRAM is storing spillage from the threads. Sometimes the 256KB per thread isn’t enough and we end up using more registers than we have. This results in a spike of latency.
 
 #### Shared Memory & Banking
 
@@ -163,12 +163,12 @@ Just loading the data into SMEM isn’t enough. Tensor Core needs a chunk of dat
 #### Constraints due to hardware till now
 
 1. Maximum threads on a block is 1024.
-2. Maximum register space usable is 256kb per SM.
-3. Maximum SMEM is 228 - number of blocks* 1 kb
+2. Maximum register space usable is 256KB per SM.
+3. Maximum SMEM is 228 - number of blocks* 1KB
 4. The 32 banks
 5. Global memory 32B sector
 
-The first 3 are inter-connected. For example, you cannot have 2 concurrent blocks of 1024 threads if each block need upwards a total of 128kb. Similarly, having more than 150kb of SMEM would also prevent having 2 concurrent blocks. Having lesser blocks means lesser occupancy. We need to find a balance while using these constrained values. 
+The first 3 are inter-connected. For example, you cannot have 2 concurrent blocks of 1024 threads if each block need upwards a total of 128KB. Similarly, having more than 150KB of SMEM would also prevent having 2 concurrent blocks. Having lesser blocks means lesser occupancy. We need to find a balance while using these constrained values. 
 
 ## The compute
 
