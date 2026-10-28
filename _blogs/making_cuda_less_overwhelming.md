@@ -80,7 +80,7 @@ When the LD/ST block execute instructions, we need to wait for a longer period b
 
 ![image.png](/assets/making_cuda_less_overwhelming/image-6.png)
 
-Each quadrant of the SM has 256 CUDA cores but just a single tensor core. Tensor core are highly powerful units that perform approximately 16x floating point operations (FLOPs) per clock cycle that of CUDA cores but they require 4 warps coordinating for them to work<sup id="fnref-5"><a href="#fn-5">[5]</a></sup>. Why not just replace CUDA cores with Tensor cores then? That’s a good argument but tensor core produce this 16x FLOPs by having larger physical size and consuming more power. Also, they just perform multiply-add operations. This certainly seems like CPU vs GPU argument. The specialized one although powerful, has tradeoffs. In this case, CUDA cores help us perform scalar multiplication, division, and trigonometric calculations.
+Each quadrant of the SM has 128 CUDA cores but just a single tensor core. Tensor core are highly powerful units that perform approximately 16x floating point operations (FLOPs) per clock cycle that of CUDA cores but they require 4 warps coordinating for them to work<sup id="fnref-5"><a href="#fn-5">[5]</a></sup>. Why not just replace CUDA cores with Tensor cores then? That’s a good argument but tensor core produce this 16x FLOPs by having larger physical size and consuming more power. Also, they just perform multiply-add operations. This certainly seems like CPU vs GPU argument. The specialized one although powerful, has tradeoffs. In this case, CUDA cores help us perform scalar multiplication, division, and trigonometric calculations.
 
 #### Occupancy and thread limits
 
